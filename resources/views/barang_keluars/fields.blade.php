@@ -1,7 +1,7 @@
 <!-- Tanggal Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tanggal', 'Tanggal:') !!}
-    {!! Form::date('tanggal', null, ['class' => 'form-control','id'=>'tanggal']) !!}
+    {!! Form::date('tanggal', null, ['class' => 'form-control','id'=>'tanggals']) !!}
 </div>
 
 @section('scripts')

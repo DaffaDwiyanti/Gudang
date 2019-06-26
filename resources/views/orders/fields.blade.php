@@ -1,7 +1,7 @@
 <!-- Tanggal Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tanggal', 'Tanggal:') !!}
-    {!! Form::date('tanggal', null, ['class' => 'form-control','id'=>'tanggal']) !!}
+    {!! Form::date('tanggal', null, ['class' => 'form-control','id'=>'tanggals']) !!}
 </div>
 
 @section('scripts')
@@ -13,6 +13,12 @@
     </script>
 @endsection
 
+<!-- Jumlah Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('jumlah', 'Jumlah:') !!}
+    {!! Form::text('jumlah', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Admin Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('admin', 'Admin:') !!}
@@ -22,13 +28,13 @@
 <!-- Id Barang Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_barang', 'Id Barang:') !!}
-    {!! Form::select('id_barang', ], null, ['class' => 'form-control']) !!}
+    {!! Form::text('id_barang', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Id Suplier Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_suplier', 'Id Suplier:') !!}
-    {!! Form::select('id_suplier', ], null, ['class' => 'form-control']) !!}
+    {!! Form::text('id_suplier', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

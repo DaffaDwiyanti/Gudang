@@ -26,7 +26,7 @@ Route::resource('barangKeluars', 'barangKeluarController');
 
 Route::resource('keluarDetails', 'keluarDetailController');
 
-Route::resource('barangMasuks', 'barangMasukController');
+
 
 Route::resource('masukDetails', 'masukDetailController');
 
@@ -35,3 +35,13 @@ Route::resource('orders', 'orderController');
 Route::resource('supliers', 'suplierController');
 
 Route::resource('targets', 'targetController');
+
+Route::resource('barangMasuks', 'barangMasukController');
+
+Route::resource('orders', 'orderController');
+
+Route::resource('orders', 'orderController');
+
+Route::resource('orders', 'orderController');
+
+Route::resource('orders', 'orderController');

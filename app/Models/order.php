@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class order
  * @package App\Models
- * @version June 25, 2019, 11:54 pm UTC
+ * @version June 26, 2019, 4:38 am UTC
  *
  * @property string tanggal
  * @property integer jumlah
@@ -54,7 +54,11 @@ class order extends Model
      * @var array
      */
     public static $rules = [
-        'jumlah' => 'numeric'
+        'tanggal' => 'required',
+        'jumlah' => 'required',
+        'admin' => 'required',
+        'id_barang' => 'required',
+        'id_suplier' => 'required'
     ];
 
     

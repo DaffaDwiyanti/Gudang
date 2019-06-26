@@ -15,7 +15,7 @@ class CreateBarangMasuksTable extends Migration
     {
         Schema::create('barang_masuks', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('tanggal');
+            $table->string('tanggal');
             $table->string('admin');
             $table->timestamps();
             $table->softDeletes();

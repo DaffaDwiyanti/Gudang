@@ -13,7 +13,7 @@
 <!-- Tgl Berlaku Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tgl_berlaku', 'Tgl Berlaku:') !!}
-    {!! Form::date('tgl_berlaku', null, ['class' => 'form-control','id'=>'tgl_berlaku']) !!}
+    {!! Form::date('tgl_berlaku', null, ['class' => 'form-control','id'=>'tgl_berlakus']) !!}
 </div>
 
 @section('scripts')

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class barangMasuk
  * @package App\Models
- * @version June 25, 2019, 11:44 pm UTC
+ * @version June 26, 2019, 3:14 am UTC
  *
  * @property string tanggal
  * @property string admin
@@ -35,7 +35,7 @@ class barangMasuk extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'tanggal' => 'date',
+        'tanggal' => 'string',
         'admin' => 'string'
     ];
 
@@ -45,7 +45,8 @@ class barangMasuk extends Model
      * @var array
      */
     public static $rules = [
-        
+        'tanggal' => 'required',
+        'admin' => 'required'
     ];
 
     

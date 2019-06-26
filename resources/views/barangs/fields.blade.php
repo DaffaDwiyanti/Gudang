@@ -25,7 +25,7 @@
 <!-- Tgl Kadaluarsa Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tgl_kadaluarsa', 'Tgl Kadaluarsa:') !!}
-    {!! Form::date('tgl_kadaluarsa', null, ['class' => 'form-control','id'=>'tgl_kadaluarsa']) !!}
+    {!! Form::date('tgl_kadaluarsa' , null, ['class' => 'form-control','id'=>'tgl_dibuat']) !!}
 </div>
 
 @section('scripts')
