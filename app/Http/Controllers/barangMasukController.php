@@ -15,6 +15,11 @@ class barangMasukController extends AppBaseController
     /** @var  barangMasukRepository */
     private $barangMasukRepository;
 
+    public function bmasuk(){
+        $bmasuk = $this->barangMasukRepository->all();
+        return view('barang_masuks.masuk')->with('bmasuk', $bmasuk);
+    }
+
     public function __construct(barangMasukRepository $barangMasukRepo)
     {
         $this->barangMasukRepository = $barangMasukRepo;
@@ -82,6 +87,8 @@ class barangMasukController extends AppBaseController
 
         return view('barang_masuks.show')->with('barangMasuk', $barangMasuk);
     }
+
+
 
     /**
      * Show the form for editing the specified barangMasuk.

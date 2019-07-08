@@ -35,6 +35,10 @@ class barangKeluarController extends AppBaseController
             ->with('barangKeluars', $barangKeluars);
     }
 
+    public function blanja(){
+        return view('barang_keluars.keluar');
+    }
+
     /**
      * Show the form for creating a new barangKeluar.
      *

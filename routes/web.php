@@ -45,3 +45,6 @@ Route::resource('orders', 'orderController');
 Route::resource('orders', 'orderController');
 
 Route::resource('orders', 'orderController');
+
+Route::get('bkeluar', 'barangKeluarController@blanja');
+Route::get('bmasuk', 'barangMasukController@bmasuk');

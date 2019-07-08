@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row">
+@foreach ($barangs as $b)
+
+<div class="col">
+<div class="card" style="width: 28rem; float:left; border:1px;">
+  <img style="width: 18rem;" src="" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{!! $b->namaBarang !!}</h5>
+    <p class="card-text">{!! $b->deskripsi !!}</p>
+    <a href="#" class="btn btn-primary">Tambah Ke keranjang</a>
+  </div>
+</div>
+
+    </div>
+@endforeach     
+</div>
+</div>
