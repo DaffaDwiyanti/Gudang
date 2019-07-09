@@ -39,6 +39,10 @@ class barangKeluarController extends AppBaseController
         return view('barang_keluars.keluar');
     }
 
+    public function blistk(){
+        return view('barang_keluars.list');
+    }
+
     /**
      * Show the form for creating a new barangKeluar.
      *
