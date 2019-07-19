@@ -1,99 +1,93 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>S I I P</title>
+ 
+    <link rel="stylesheet" href="style.css" media="screen" />
+   
 
-        <title>Laravel</title>
+    <link href='http://fonts.googleapis.com/css?family=Righteous&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+     <script src="scripts/modernizr.js"></script>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+</head>
 
-            .full-height {
-                height: 100vh;
-            }
+<body>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+    
+    <a href="#cd-nav" class="cd-nav-trigger">Menu 
+        <span class="cd-nav-icon"></span>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        <svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+            <circle fill="transparent" stroke="#90D4C5" stroke-width="2" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+        </svg>
+    </a>
+        
+    <div id="cd-nav" class="cd-nav">
+        <div class="cd-navigation-wrapper">
+            <div class="cd-half-block">
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
+                <nav>
+                    <ul class="cd-primary-nav">
+                    @if (Route::has('login'))
+                            @auth
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+                            <li><a href="{{ url('/home') }}" class="selected">Home</a></li>
+                            @else
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                                @endif
+                            @endauth
+                    @endif
+                    </ul>
+                </nav>
+            </div><!-- .cd-half-block -->
+            
+            
+        </div> <!-- .cd-navigation-wrapper -->
+    </div> <!-- .cd-nav -->
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    <div class="site-container">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+        <header class="site-header cf">
+            <div class="site-title"><a href="index.html">S I I P</a></div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <div class="cf"></div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+            <div class="site-tagline">
+                <p>H A I! Selamat Datang di <strong>Sistem Informasi Inventory dan Penjualan.</strong> <a  target="_blank">Have a Good Day ! </a></p>
             </div>
-        </div>
-    </body>
+            
+        </header><!-- / .site-header -->
+
+          
+        <!--END .site-content-->
+        </section>
+
+         <footer class="site-footer cf">
+            <p class="footer-text">© Copyright 2019 </p>
+            <nav class="languages" role="navigation">
+              <ul>
+             
+              </ul>
+            </nav> 
+        </footer>
+    <!--END .site-container-->
+    </div>
+
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/jquery.fitvids.js"></script>
+    <script src="scripts/jquery.imagesloaded.min.js"></script>
+    <script src="scripts/main.js"></script>  
+ 
+
+</body>
 </html>
