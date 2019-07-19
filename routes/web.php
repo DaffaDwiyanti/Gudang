@@ -40,12 +40,7 @@ Route::resource('barangMasuks', 'barangMasukController');
 
 Route::resource('orders', 'orderController');
 
-Route::resource('orders', 'orderController');
+Route::resource('sales', 'salesController');
 
-Route::resource('orders', 'orderController');
+Route::resource('gudang', 'gudangController');
 
-Route::resource('orders', 'orderController');
-
-Route::get('bkeluar', 'barangKeluarController@blanja');
-Route::get('blistk', 'barangKeluarController@blistk');
-Route::get('bmasuk', 'barangMasukController@bmasuk');
