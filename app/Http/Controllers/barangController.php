@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatebarangRequest;
 use App\Repositories\barangRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Perhitungan;
 use Flash;
 use Response;
 
@@ -42,6 +43,7 @@ class barangController extends AppBaseController
      */
     public function create()
     {
+
         return view('barangs.create');
     }
 
@@ -153,4 +155,17 @@ class barangController extends AppBaseController
 
         return redirect(route('barangs.index'));
     }
+
+    // public function validasiTarget($id, Request $request){
+
+    //     $valTarget = $this->barangRepository->
+
+    //     if(){}
+    //         else {
+    //             # code...
+    //         }
+
+    // }
+
+
 }
