@@ -2,27 +2,76 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatebarangRequest;
+use App\Http\Requests\UpdatebarangRequest;
+use App\Repositories\barangRepository;
+
+use App\Http\Requests\CreatebarangKeluarRequest;
+use App\Http\Requests\UpdatebarangKeluarRequest;
+use App\Repositories\barangKeluarRepository;
+
+use App\Http\Requests\CreatebarangMasukRequest;
+use App\Http\Requests\UpdatebarangMasukRequest;
+use App\Repositories\barangMasukRepository;
+
+
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Flash;
+use Response;
+
 
 class gudangController extends Controller
 {
+
+    private $barangRepository;
+    private $barangKeluarRepository;
+    private $barangMasukRepository;
+
+    public function __construct(barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
+    {
+        $this->barangRepository = $barangRepo;
+        $this->barangKeluarRepository = $barangKeluarRepo;
+        $this->barangMasukRepository = $barangMasukRepo;
+    }
+
     public function index(){
         return view('gudang.index');
     }
     public function masuk(){
-        return view('gudang.index');
+        $masuks = $this->barangMasukRepository->all();
+        return view('gudang.masuk')->with('masuks', $masuks);
     }
     public function bmasuk(){
-        return view('gudang.index');
+        $idmasuk = $this->barangMasukRepository->all();
+        $barangs = $this->barangRepository->all();
+        return view('gudang.bmasuk')->with('barangs', $barangs)
+        ->with('idmasuks', $idmasuk->count());
     }
+    
     public function keluar(){
-        return view('gudang.index');
+        $keluars = $this->barangKeluarRepository->all();
+        return view('gudang.keluar')->with('keluars', $keluars);
     }
     public function bkeluar(){
-        return view('gudang.index');
+        $barangs = $this->barangRepository->all();
+        return view('gudang.bkeluar')->with('barangs', $barangs);
     }
 
     public function barang(){
-        return view('gudang.index');
+        $barangs = $this->barangRepository->all();
+        return view('gudang.barang')->with('barangs', $barangs);;
+    }
+
+    
+    public function storeBarang(Request $request)
+    {
+        $input = $request->all();
+
+        $barang = $this->barangRepository->create($input);
+
+        Flash::success('Barang saved successfully.');
+        return view('gudang.barang');
+
     }
 }

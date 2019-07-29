@@ -63,7 +63,7 @@ class barangController extends AppBaseController
         return redirect(route('barangs.index'));
     }
 
-    /**
+    /**solat
      * Display the specified barang.
      *
      * @param int $id

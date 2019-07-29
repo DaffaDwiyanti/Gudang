@@ -18,7 +18,17 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            // return redirect('/home');
+
+            if(Auth::user()->role ==0){
+                return redirect('/home');
+            }
+            elseif(Auth::user()->role==1){
+                return redirect('/sales');
+            }
+            else{
+                return redirect('/gudang');
+            }
         }
 
         return $next($request);

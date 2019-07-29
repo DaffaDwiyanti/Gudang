@@ -92,7 +92,7 @@
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="customer-orders.html">Barang Keluar</a></li>
+                <li class="breadcrumb-item"><a href="customer-orders.html">Barang</a></li>
               </ul>
             </div>
           </div>
@@ -109,19 +109,27 @@
             <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>Tanggal</th>
-                        <th>Admin</th>
-                        <th>Jenis Keluar</th>
+                        <th>ID Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Stok</th>
+                        <th>Deskripsi</th>
+                        <th>Tanggal Kadaluarsa</th>
+                        <th>Tanggal Dibuat</th>
+                        <th>Gambar</th>
                         <th colspan="2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
 
-        @foreach($keluars as $keluar)
+        @foreach($barangs as $barang)
                       <tr>
-                        <td>{!! $keluar->tanggal !!}</td>
-                        <td>{!! $keluar->admin !!}</td>
-                        <td>{!! $keluar->jenisKeluar !!}</td>
+                        <td>{!! $barang->id_barang !!}</td>
+                        <td>{!! $barang->namaBarang !!}</td>
+                        <td>{!! $barang->stok !!}</td>
+                        <td>{!! $barang->deskripsi !!}</td>
+                        <td>{!! $barang->tgl_kadaluarsa !!}</td>
+                        <td>{!! $barang->tgl_dibuat !!}</td>
+                        <td>{!! $barang->gambar !!}</td>
                         <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Edit</a></td>
                         <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Delete</a></td>
                       </tr>
@@ -130,6 +138,87 @@
                   </table>
 
 
+                  <div class="content">
+                      @include('adminlte-templates::common.errors')
+                      <div class="box box-primary">
+                      <form action="{{ route('storeBarang') }}" method="post">
+
+                        {{ csrf_field("POST") }}
+                          <div class="box-body">
+                              <div class="row">
+                              <!-- Id Barang Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('id_barang', 'Id Barang:') !!}
+                                    {!! Form::text('id_barang', null, ['class' => 'form-control']) !!}
+                                </div>
+
+                                <!-- Namabarang Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('namaBarang', 'Namabarang:') !!}
+                                    {!! Form::text('namaBarang', null, ['class' => 'form-control']) !!}
+                                </div>
+
+                                <!-- Stok Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('stok', 'Stok:') !!}
+                                    {!! Form::text('stok', null, ['class' => 'form-control']) !!}
+                                </div>
+
+                                <!-- Deskripsi Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('deskripsi', 'Deskripsi:') !!}
+                                    {!! Form::text('deskripsi', null, ['class' => 'form-control']) !!}
+                                </div>
+
+                                <!-- Tgl Kadaluarsa Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('tgl_kadaluarsa', 'Tgl Kadaluarsa:') !!}
+                                    {!! Form::date('tgl_kadaluarsa' , null, ['class' => 'form-control','id'=>'tgl_dibuat']) !!}
+                                </div>
+
+                                @section('scripts')
+                                    <script type="text/javascript">
+                                        $('#tgl_kadaluarsa').datetimepicker({
+                                            format: 'YYYY-MM-DD HH:mm:ss',
+                                            useCurrent: false
+                                        })
+                                    </script>
+                                @endsection
+
+                                <!-- Tgl Dibuat Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('tgl_dibuat', 'Tgl Dibuat:') !!}
+                                    {!! Form::date('tgl_dibuat', null, ['class' => 'form-control','id'=>'tgl_dibuat']) !!}
+                                </div>
+
+                                @section('scripts')
+                                    <script type="text/javascript">
+                                        $('#tgl_dibuat').datetimepicker({
+                                            format: 'YYYY-MM-DD HH:mm:ss',
+                                            useCurrent: false
+                                        })
+                                    </script>
+                                @endsection
+
+                                <!-- Id Suplier Field -->
+                                <div class="form-group col-sm-6">
+                                    {!! Form::label('id_suplier', 'Id Suplier:') !!}
+                                    {!! Form::text('id_suplier', null, ['class' => 'form-control']) !!}
+                                </div>
+
+                                <!-- Submit Field -->
+                                <div class="form-group col-sm-12">
+                                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                                    <a href="{!! route('storeBarang') !!}" class="btn btn-default">Cancel</a>
+                                </div>
+                                
+                              </div>
+                          </div>
+                      </div>
+                      </form>
+                  </div>
+                
+              </div>
             </div>
             <div class="col-lg-3 mt-4 mt-lg-0">
               <!-- CUSTOMER MENU -->

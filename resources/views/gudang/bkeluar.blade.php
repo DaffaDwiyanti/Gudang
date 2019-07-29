@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Barang Keluar</title>
+    <title>Barang Masuk</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -24,20 +25,19 @@
     <link rel="stylesheet" href="../css/custom.css">
     <!-- Favicon and apple touch icons-->
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="57x57" href="../img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="120x120" href="../img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-touch-icon-152x152.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
-    <div id="all">  
+    <div id="all">
       <!-- Navbar Start-->
       <header class="nav-holder make-sticky">
         <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
@@ -87,13 +87,7 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">Dashboard</h1>
-            </div>
-            <div class="col-md-5">
-              <ul class="breadcrumb d-flex justify-content-end">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="customer-orders.html">Barang Keluar</a></li>
-              </ul>
+              <h1 class="h2">Barang Masuk</h1>
             </div>
           </div>
         </div>
@@ -101,39 +95,86 @@
       <div id="content">
         <div class="container">
           <div class="row bar">
-            <div id="customer-order" class="col-lg-9">
-              
-            <div class="box">
-              
-            
-            <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Tanggal</th>
-                        <th>Admin</th>
-                        <th>Jenis Keluar</th>
-                        <th colspan="2">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+            <div class="col-md-9">
+                
+              <div class="row products products-big">
+                <!-- isi disini  -->
+                <div class="container">
 
-        @foreach($keluars as $keluar)
-                      <tr>
-                        <td>{!! $keluar->tanggal !!}</td>
-                        <td>{!! $keluar->admin !!}</td>
-                        <td>{!! $keluar->jenisKeluar !!}</td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Edit</a></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Delete</a></td>
-                      </tr>
-                    </tbody>
+                <div class="row">
+                <div class="col-lg-3 col-md-6">
+                  <div class="box text-uppercase mt-0 mb-2">
+                    <h3>Data Barang</h3>
+                  </div>
+                </div>
+
+
+        @foreach($barangs as $barang)
+                <div class="col-lg-3 col-md-6">
+                  <div class="product">
+                    <div class="image"><a href="shop-detail.html"><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
+                    <div class="text">
+                      <h3 class="h5"><a href="shop-detail.html">{{$barang->namaBarang}}</a></h3>
+                      <p class="price">{{$barang->deskripsi}}</p>
+                    </div>
+                  </div>
+                </div>
         @endforeach
-                  </table>
+              </div>
 
-
+        </div>
+              </div>
             </div>
-            <div class="col-lg-3 mt-4 mt-lg-0">
-              <!-- CUSTOMER MENU -->
+            
+            <div class="col-md-3">
+
+          <div class="row bar">
+              <p class="text-muted lead">Your cart.</p>
+            <div id="basket" class="col-lg-12">
+              <div class="box mt-0 pb-0 no-horizontal-padding">
+                <form method="get" action="shop-checkout1.html">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th colspan="2">Product</th>
+                          <th>Quantity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="#"><img src="../img/detailsquare.jpg" alt="White Blouse Armani" class="img-fluid"></a></td>
+                          <td><a href="#">White Blouse Armani</a></td>
+                          <td>
+                            <input type="number" value="2" class="form-control">
+                          </td>
+                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#"><img src="../img/basketsquare.jpg" alt="Black Blouse Armani" class="img-fluid"></a></td>
+                          <td><a href="#">Black Blouse Armani</a></td>
+                          <td>
+                            <input type="number" value="1" class="form-control">
+                          </td>
+                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="box-footer d-flex justify-content-between align-items-center">
+                    <div class="left-col"></div>
+                    <div class="right-col">
+                      <button type="submit" class="btn btn-template-outlined">Proceed checkout <i class="fa fa-chevron-right"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
               
+            </div>
+            
+          </div>
+            
+             
             </div>
           </div>
         </div>

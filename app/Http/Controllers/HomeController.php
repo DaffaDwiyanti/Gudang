@@ -26,12 +26,12 @@ class HomeController extends Controller
     {
         if(Auth::user()->role ==0){
             return view('/home');
-         }
+        }
         elseif(Auth::user()->role==1){
-            return view('/sales');
-         }
-         else{
+            return redirect('/sales');
+        }
+        else{
             return redirect('/gudang');
-         }
+        }
     }
 }
