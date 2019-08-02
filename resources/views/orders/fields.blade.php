@@ -5,12 +5,12 @@
 </div>
 
 @section('scripts')
-    <script type="text/javascript">
-        $('#tanggal').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: false
-        })
-    </script>
+<script type="text/javascript">
+    $('#tanggal').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss',
+        useCurrent: false
+    })
+</script>
 @endsection
 
 <!-- Jumlah Field -->
@@ -22,7 +22,12 @@
 <!-- Admin Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('admin', 'Admin:') !!}
-    {!! Form::text('admin', null, ['class' => 'form-control']) !!}
+    @if (Auth::guest())
+    <p>guest</p>
+    @else
+    <p>{{ Auth::user()->name}}</p>
+    @endif
+    <!-- {!! Form::text('admin', null, ['class' => 'form-control']) !!} -->
 </div>
 
 <!-- Id Barang Field -->

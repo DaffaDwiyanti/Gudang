@@ -12,9 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
+
+
+Route::resource('dashboard', 'dashboardController');
 
 Auth::routes();
 

@@ -10,15 +10,22 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class barangController extends AppBaseController
+class dashboardController extends AppBaseController
 {
     /** @var  barangRepository */
+
+
     private $barangRepository;
 
     public function __construct(barangRepository $barangRepo)
     {
         $this->barangRepository = $barangRepo;
     }
+
+    // public function __construct(barangRepository $barangRepo)
+    // {
+    //     $this->barangRepository = $barangRepo;
+    // }
 
     /**
      * Display a listing of the barang.
@@ -29,10 +36,9 @@ class barangController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $barangs = $this->barangRepository->all();
+        // $barangs = $this->barangRepository->all();
 
-        return view('barangs.index')
-            ->with('barangs', $barangs);
+        return view('dashboard');
     }
 
     /**
@@ -41,10 +47,7 @@ class barangController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-
-        return view('barangs.create');
-    }
+    { }
 
     /**
      * Store a newly created barang in storage.
@@ -55,13 +58,13 @@ class barangController extends AppBaseController
      */
     public function store(CreatebarangRequest $request)
     {
-        $input = $request->all();
+        // $input = $request->all();
 
-        $barang = $this->barangRepository->create($input);
+        // $barang = $this->barangRepository->create($input);
 
-        Flash::success('Barang saved successfully.');
+        // Flash::success('Barang saved successfully.');
 
-        return redirect(route('barangs.index'));
+        // return redirect(route('barangs.index'));
     }
 
     /**
@@ -73,15 +76,15 @@ class barangController extends AppBaseController
      */
     public function show($id)
     {
-        $barang = $this->barangRepository->find($id);
+        // $barang = $this->barangRepository->find($id);
 
-        if (empty($barang)) {
-            Flash::error('Barang not found');
+        // if (empty($barang)) {
+        //     Flash::error('Barang not found');
 
-            return redirect(route('barangs.index'));
-        }
+        //     return redirect(route('barangs.index'));
+        // }
 
-        return view('barangs.show')->with('barang', $barang);
+        // return view('barangs.show')->with('barang', $barang);
     }
 
     /**
@@ -93,15 +96,15 @@ class barangController extends AppBaseController
      */
     public function edit($id)
     {
-        $barang = $this->barangRepository->find($id);
+        // $barang = $this->barangRepository->find($id);
 
-        if (empty($barang)) {
-            Flash::error('Barang not found');
+        // if (empty($barang)) {
+        //     Flash::error('Barang not found');
 
-            return redirect(route('barangs.index'));
-        }
+        //     return redirect(route('barangs.index'));
+        // }
 
-        return view('barangs.edit')->with('barang', $barang);
+        // return view('barangs.edit')->with('barang', $barang);
     }
 
     /**
@@ -114,19 +117,19 @@ class barangController extends AppBaseController
      */
     public function update($id, UpdatebarangRequest $request)
     {
-        $barang = $this->barangRepository->find($id);
+        // $barang = $this->barangRepository->find($id);
 
-        if (empty($barang)) {
-            Flash::error('Barang not found');
+        // if (empty($barang)) {
+        //     Flash::error('Barang not found');
 
-            return redirect(route('barangs.index'));
-        }
+        //     return redirect(route('barangs.index'));
+        // }
 
-        $barang = $this->barangRepository->update($request->all(), $id);
+        // $barang = $this->barangRepository->update($request->all(), $id);
 
-        Flash::success('Barang updated successfully.');
+        // Flash::success('Barang updated successfully.');
 
-        return redirect(route('barangs.index'));
+        // return redirect(route('barangs.index'));
     }
 
     /**
@@ -140,19 +143,19 @@ class barangController extends AppBaseController
      */
     public function destroy($id)
     {
-        $barang = $this->barangRepository->find($id);
+        // $barang = $this->barangRepository->find($id);
 
-        if (empty($barang)) {
-            Flash::error('Barang not found');
+        // if (empty($barang)) {
+        //     Flash::error('Barang not found');
 
-            return redirect(route('barangs.index'));
-        }
+        //     return redirect(route('barangs.index'));
+        // }
 
-        $this->barangRepository->delete($id);
+        // $this->barangRepository->delete($id);
 
-        Flash::success('Barang deleted successfully.');
+        // Flash::success('Barang deleted successfully.');
 
-        return redirect(route('barangs.index'));
+        // return redirect(route('barangs.index'));
     }
 
     // public function validasiTarget($id, Request $request){

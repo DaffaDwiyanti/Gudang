@@ -7,7 +7,6 @@ use App\Http\Requests\UpdatetargetRequest;
 use App\Repositories\targetRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use App\Models\Perhitungan;
 use Flash;
 use Response;
 use Mockery\CountValidator\Exception;

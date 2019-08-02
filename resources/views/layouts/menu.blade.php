@@ -1,3 +1,7 @@
+<li>
+    <a href="{{route('dashboard.index')}}"><i class="fa fa-edit"></i><span>Dashboard</span></a>
+</li>
+
 <li class="{{ Request::is('barangs*') ? 'active' : '' }}">
     <a href="{!! route('barangs.index') !!}"><i class="fa fa-edit"></i><span>Barang</span></a>
 </li>
@@ -5,7 +9,6 @@
 <li class="{{ Request::is('keluarDetails*') ? 'active' : '' }}">
     <a href="{!! route('keluarDetails.index') !!}"><i class="fa fa-edit"></i><span>Keluar Detail</span></a>
 </li>
-
 
 <li class="{{ Request::is('masukDetails*') ? 'active' : '' }}">
     <a href="{!! route('masukDetails.index') !!}"><i class="fa fa-edit"></i><span>Masuk Detail</span></a>
