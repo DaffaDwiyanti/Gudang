@@ -17,6 +17,8 @@ use App\Repositories\barangMasukRepository;
 
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+
+use App\Models\barang;
 use Flash;
 use Response;
 
@@ -45,8 +47,50 @@ class gudangController extends Controller
     public function bmasuk(){
         $idmasuk = $this->barangMasukRepository->all();
         $barangs = $this->barangRepository->all();
-        return view('gudang.bmasuk')->with('barangs', $barangs)
+        return view('gudang.bmasuk')
+        ->with('barangs', $barangs)
         ->with('idmasuks', $idmasuk->count());
+    }
+    public function bmasukKranjang($id){
+
+        $barang = barang::where('id', $id)->get();
+        if ($barang) {
+            // abort(404);
+            echo $id;
+            echo $barang->namaBarang;
+            // return redirect('/gudang/bmassuk');
+        }else{
+            
+        $kranjang = session()->get('kranjang');
+        if (!$kranjang) {
+            $kranjang =[
+                $id =>[
+                    "nama" => $barang->namaBarang,
+                    "kuantitas" => 1,
+                    "deskripsi" => $barang->deskripsi
+            ]];
+            session()->put('kranjang', $kranjang);
+            return redirect('/gudang/bmasuk');
+
+        }
+
+        if (isset($cart[$id])) {
+            $cart[$id]['kuantitas']++;
+            session()->put('kranjang', $kranjang);
+            return redirect('/gudang/bmasuk');
+        }
+
+        $kranjang[$id] = [
+            "nama" => $barang->namaBarang,
+            "kuantitas" => 1,
+            "deskripsi" => $barang->deskripsi
+        ];
+        session()->put('kranjang', $kranjang);
+        return redirect('/gudang/bmasuk');
+
+        }
+
+
     }
     
     public function keluar(){

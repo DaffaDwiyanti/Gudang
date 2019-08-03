@@ -108,15 +108,14 @@
                   </div>
                 </div>
 
-
         @foreach($barangs as $barang)
         <!-- {{$idmasuks+1}} -->
                 <div class="col-lg-3 col-md-6">
                   <div class="product">
-                    <div class="image"><a href=""><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
+                    <div class="image"><a href="/gudang/bmasuk/{{$barang->id }}"><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
                     <div class="text">
                       <h3 class="h5"><a href="">{{$barang->namaBarang}}</a></h3>
-                      <p class="price">{{$barang->deskripsi}}</p>
+                      <p class="price">{{str_limit(strtolower($barang->deskripsi), 50)}}</p>
                     </div>
                   </div>
                 </div>
@@ -143,14 +142,21 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+
+        <?php $total = 0 ?>
+ @if(session('cart'))
+     @foreach(session('cart') as $id => $barangss)
+
+                      <tr>
                           <td><a href="#"><img src="../img/detailsquare.jpg" alt="White Blouse Armani" class="img-fluid"></a></td>
-                          <td><a href="#">White Blouse Armani</a></td>
+                          <td><a href="#">{{$barangss->nama}}</a></td>
                           <td>
-                            <input type="number" value="2" class="form-control">
+                            <input type="number" value="{{$barangss->kuantitas}}" class="form-control">
                           </td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
+                      </tr>
+     @endforeach
+ @endif
                         <tr>
                           <td><a href="#"><img src="../img/basketsquare.jpg" alt="Black Blouse Armani" class="img-fluid"></a></td>
                           <td><a href="#">Black Blouse Armani</a></td>

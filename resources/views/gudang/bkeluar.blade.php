@@ -104,18 +104,19 @@
                 <div class="row">
                 <div class="col-lg-3 col-md-6">
                   <div class="box text-uppercase mt-0 mb-2">
-                    <h3>Data Barang</h3>
+                    <h3>Data Barang </h3>
                   </div>
                 </div>
 
 
         @foreach($barangs as $barang)
+        <!-- {{$idmasuks+1}} -->
                 <div class="col-lg-3 col-md-6">
                   <div class="product">
-                    <div class="image"><a href="shop-detail.html"><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
+                    <div class="image"><a href="/gudang/bmasuk/{{$barang->id }}"><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
                     <div class="text">
-                      <h3 class="h5"><a href="shop-detail.html">{{$barang->namaBarang}}</a></h3>
-                      <p class="price">{{$barang->deskripsi}}</p>
+                      <h3 class="h5"><a href="">{{$barang->namaBarang}}</a></h3>
+                      <p class="price">{{str_limit(strtolower($barang->deskripsi), 50)}}</p>
                     </div>
                   </div>
                 </div>
