@@ -109,7 +109,6 @@
                 </div>
 
         @foreach($barangs as $barang)
-        <!-- {{$idmasuks+1}} -->
                 <div class="col-lg-3 col-md-6">
                   <div class="product">
                     <div class="image"><a href="/gudang/bmasuk/{{$barang->id }}"><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
@@ -144,27 +143,25 @@
                       <tbody>
 
         <?php $total = 0 ?>
- @if(session('cart'))
-     @foreach(session('cart') as $id => $barangss)
-
+ @if(session('kranjang'))
+     @foreach($datas as $data)
                       <tr>
                           <td><a href="#"><img src="../img/detailsquare.jpg" alt="White Blouse Armani" class="img-fluid"></a></td>
-                          <td><a href="#">{{$barangss->nama}}</a></td>
+                          <td><a href="#">{{$data->nama}}</a></td>
                           <td>
-                            <input type="number" value="{{$barangss->kuantitas}}" class="form-control">
                           </td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
                       </tr>
      @endforeach
  @endif
-                        <tr>
+                        <!-- <tr>
                           <td><a href="#"><img src="../img/basketsquare.jpg" alt="Black Blouse Armani" class="img-fluid"></a></td>
                           <td><a href="#">Black Blouse Armani</a></td>
                           <td>
                             <input type="number" value="1" class="form-control">
                           </td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>

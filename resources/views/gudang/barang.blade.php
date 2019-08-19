@@ -131,7 +131,12 @@
                         <td>{!! $barang->tgl_dibuat !!}</td>
                         <td>{!! $barang->gambar !!}</td>
                         <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Edit</a></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Delete</a></td>
+
+                        <td>
+                    {!! Form::open(['route' => ['gudang/barangHapus', $barang->id], 'method' => 'delete']) !!}
+                        <a  class="btn btn-template-outlined btn-sm" onclick="return confirm('Are you sure?')">Delete</a></td>
+                    {!! Form::close() !!}
+                </td>
                       </tr>
                     </tbody>
         @endforeach
@@ -141,7 +146,7 @@
                   <div class="content">
                       @include('adminlte-templates::common.errors')
                       <div class="box box-primary">
-                      <form action="{{ route('storeBarang') }}" method="post">
+                      <form action="{{ route('SimpanB.store') }}" method="post">
 
                         {{ csrf_field("POST") }}
                           <div class="box-body">
@@ -208,9 +213,9 @@
 
                                 <!-- Submit Field -->
                                 <div class="form-group col-sm-12">
-                                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                                    <a href="{!! route('storeBarang') !!}" class="btn btn-default">Cancel</a>
+                                {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
                                 </div>
+
                                 
                               </div>
                           </div>
@@ -221,7 +226,6 @@
               </div>
             </div>
             <div class="col-lg-3 mt-4 mt-lg-0">
-              <!-- CUSTOMER MENU -->
               
             </div>
           </div>

@@ -48,11 +48,14 @@ Route::resource('gudangs', 'gudangController');
 Route::get('gudang', 'gudangController@index')->name('gudang');
 Route::get('gudang/masuk', 'gudangController@masuk');
 Route::get('gudang/bmasuk', 'gudangController@bmasuk');
+
 Route::get('gudang/bmasuk/{id}', 'gudangController@bmasukKranjang');
 Route::get('gudang/keluar', 'gudangController@keluar');
 Route::get('gudang/bkeluar', 'gudangController@bkeluar');
+
 Route::get('gudang/barang', 'gudangController@barang');
-Route::post('gudang/SimpanB', 'gudangController@storeBarang')->name('storeBarang');
+Route::DELETE('gudang/barangHapus/{id}', 'gudangController@barangHapus')->name('gudang/barangHapus');
+Route::resource('SimpanB', 'gudangController');
 
 
 Route::get('sales', 'salesController@index');
