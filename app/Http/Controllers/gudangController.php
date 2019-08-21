@@ -33,6 +33,7 @@ class gudangController extends Controller
     public $flagP = "i";
 
     public function __construct(barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
+    
     {
         $this->barangRepository = $barangRepo;
         $this->barangKeluarRepository = $barangKeluarRepo;
@@ -40,17 +41,17 @@ class gudangController extends Controller
     }
 
     public function index(){
-        if($flagP == "i"){
+        // if($flagP == "i"){
             return view('gudang.index');
-        }elseif($flagP == "b"){
-            return view('gudang.barang');
-        }elseif($flagP == "m"){
-            return view('gudang.masuk');
-        }elseif($flagP == "k"){
-            return view('gudang.keluar');
-        }else{
-            return view('gudang.index');
-        }
+    //     }elseif($flagP == "b"){
+    //         return view('gudang.barang');
+    //     }elseif($flagP == "m"){
+    //         return view('gudang.masuk');
+    //     }elseif($flagP == "k"){
+    //         return view('gudang.keluar');
+    //     }else{
+    //         return view('gudang.index');
+    //     }
     }
 
     //---------------- BARANG MASUK & SUMMARY MASUK
@@ -154,6 +155,19 @@ class gudangController extends Controller
         $flagP = "b";
         return Redirect::back()->with('message','Operation Successful !');
     }
+    public function barangEdit($id)
+    {
+
+        $barang = $this->barangRepository->find($id);
+
+        if (empty($barang)) {
+            Flash::error('Barang not found');
+
+            return redirect(route('barangs.index'));
+        }
+
+        return view('gudang.barangEdit')->with('barang', $barang);
+    }
 
     
     public function store(Request $request)
@@ -166,5 +180,22 @@ class gudangController extends Controller
         return Redirect::back()->with('message','Operation Successful !');
 
 
+    }
+
+    public function updateB($id, UpdatebarangRequest $request)
+    {
+        $barang = $this->barangRepository->find($id);
+
+        if (empty($barang)) {
+            Flash::error('Barang not found');
+
+            return redirect(route('gudang.index'));
+        }
+
+        $barang = $this->barangRepository->update($request->all(), $id);
+
+        Flash::success('Barang updated successfully.');
+
+        return redirect(route('gudang'));
     }
 }

@@ -54,6 +54,8 @@ Route::get('gudang/keluar', 'gudangController@keluar');
 Route::get('gudang/bkeluar', 'gudangController@bkeluar');
 
 Route::get('gudang/barang', 'gudangController@barang');
+Route::PATCH('gudang/update/{id}', 'gudangController@updateB')->name('gudang/updateB');
+Route::get('gudang/barangEdit/{id}', 'gudangController@barangEdit')->name('gudang/barangEdit');
 Route::DELETE('gudang/barangHapus/{id}', 'gudangController@barangHapus')->name('gudang/barangHapus');
 Route::resource('SimpanB', 'gudangController');
 

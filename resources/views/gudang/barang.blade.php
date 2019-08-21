@@ -116,7 +116,7 @@
                         <th>Tanggal Kadaluarsa</th>
                         <th>Tanggal Dibuat</th>
                         <th>Gambar</th>
-                        <th colspan="2">Action</th>
+                        <th colspan="2"><center>Action</center></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -130,13 +130,17 @@
                         <td>{!! $barang->tgl_kadaluarsa !!}</td>
                         <td>{!! $barang->tgl_dibuat !!}</td>
                         <td>{!! $barang->gambar !!}</td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Edit</a></td>
+                        <td>
+                            {!! Form::open(['route' => ['gudang/barangEdit', $barang->id]]) !!}
+                                {!! Form::button('EDIT', ['type' => 'submit', 'class' => 'btn btn-template-outlined btn-sm']) !!}
+                            {!! Form::close() !!}
+                        </td>
 
                         <td>
-                    {!! Form::open(['route' => ['gudang/barangHapus', $barang->id], 'method' => 'delete']) !!}
-                        <a  class="btn btn-template-outlined btn-sm" onclick="return confirm('Are you sure?')">Delete</a></td>
-                    {!! Form::close() !!}
-                </td>
+                            {!! Form::open(['route' => ['gudang/barangHapus', $barang->id], 'method' => 'delete']) !!}
+                                {!! Form::button('DELETE', ['type' => 'submit', 'class' => 'btn btn-template-outlined btn-sm', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::close() !!}
+                        </td>
                       </tr>
                     </tbody>
         @endforeach
