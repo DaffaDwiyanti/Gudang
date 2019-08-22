@@ -2,39 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatebarangRequest;
-use App\Http\Requests\UpdatebarangRequest;
-use App\Repositories\barangRepository;
-
-use App\Http\Requests\CreatebarangKeluarRequest;
-use App\Http\Requests\UpdatebarangKeluarRequest;
-use App\Repositories\barangKeluarRepository;
-
-use App\Http\Requests\CreatebarangMasukRequest;
-use App\Http\Requests\UpdatebarangMasukRequest;
-use App\Repositories\barangMasukRepository;
-
-
+use App\Http\Requests\CreateorderRequest;
+use App\Http\Requests\UpdateorderRequest;
+use App\Repositories\orderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Flash;
+use Response;
 
-
-
-class salesController extends Controller
+class ordersController extends Controller
 {
+    private $orderRepository;
 
-    private $barangRepository;
-    private $barangKeluarRepository;
-    private $barangMasukRepository;
-    public $flagP = "i";
-
-    public function __construct(barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
-    
+    public function __construct(orderRepository $orderRepo)
     {
-        $this->barangRepository = $barangRepo;
-        $this->barangKeluarRepository = $barangKeluarRepo;
-        $this->barangMasukRepository = $barangMasukRepo;
+        $this->orderRepository = $orderRepo;
     }
     /**
      * Display a listing of the resource.
@@ -43,8 +25,8 @@ class salesController extends Controller
      */
     public function index()
     {
-        $asdf = 20;
-        return view('sales.index')->with('asdf' ,  $asdf);
+        $orders = $this->orderRepository->all();
+        return view('sales.tableO')->with('orders', $orders);
     }
 
     /**

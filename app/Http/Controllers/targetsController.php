@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\CreatebarangRequest;
 use App\Http\Requests\UpdatebarangRequest;
 use App\Repositories\barangRepository;
@@ -15,26 +14,30 @@ use App\Http\Requests\UpdatebarangMasukRequest;
 use App\Repositories\barangMasukRepository;
 
 
+use App\Http\Requests\CreatetargetRequest;
+use App\Http\Requests\UpdatetargetRequest;
+use App\Repositories\targetRepository;
+
+
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-
-
-class salesController extends Controller
+class targetsController extends Controller
 {
 
     private $barangRepository;
     private $barangKeluarRepository;
     private $barangMasukRepository;
-    public $flagP = "i";
+    private $targetRepository;
 
-    public function __construct(barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
+    public function __construct(targetRepository $targetRepo, barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
     
     {
         $this->barangRepository = $barangRepo;
         $this->barangKeluarRepository = $barangKeluarRepo;
         $this->barangMasukRepository = $barangMasukRepo;
+        $this->targetRepository = $targetRepo;
     }
     /**
      * Display a listing of the resource.
@@ -43,8 +46,9 @@ class salesController extends Controller
      */
     public function index()
     {
-        $asdf = 20;
-        return view('sales.index')->with('asdf' ,  $asdf);
+        $targets = $this->targetRepository->all();
+
+        return view('sales.tableP')->with('targets', $targets);
     }
 
     /**

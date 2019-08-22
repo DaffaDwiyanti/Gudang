@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Sales | S I I P</title>
+    <title>Inventory | S I I P</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
@@ -97,7 +97,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <!-- <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a> -->
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a>
                         </li>
                     </ul>
                 </div>
@@ -115,11 +115,11 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="{{route('sales.index')}}" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('target.index')}}" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Target Penjualan</span></a>
+                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Target Penjualan</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('order.index')}}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Order Barang</span></a>
+                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Order Barang</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -164,7 +164,7 @@
                             <div class="card-body">
                                 <div class="d-flex no-block">
                                     <div>
-                                        <h5 class="card-title m-b-0">Grafik Penjualan</h5>
+                                        <h5 class="card-title m-b-0">Sales Chart</h5>
                                     </div>
                                     <div class="ml-auto">
                                         <ul class="list-inline text-center font-12">
@@ -183,13 +183,19 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex m-b-30 no-block">
-                                    <h5 class="card-title m-b-0 align-self-center">Target Penjualan</h5>
+                                    <h5 class="card-title m-b-0 align-self-center">Our Visitors</h5>
+                                    <div class="ml-auto">
+                                        <select class="custom-select b-0">
+                                            <option selected="">Today</option>
+                                            <option value="1">Tomorrow</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div id="visitor" style="height:260px; width:100%;"></div>
                                 <ul class="list-inline m-t-30 text-center font-12">
-                                    <li><i class="fa fa-circle text-purple"></i> Tercapai</li>
-                                    <li><i class="fa fa-circle text-success"></i> Tidak Tercapai</li>
-                                    <li><i class="fa fa-circle text-info"></i> Terlampaui</li>
+                                    <li><i class="fa fa-circle text-purple"></i> Tablet</li>
+                                    <li><i class="fa fa-circle text-success"></i> Desktops</li>
+                                    <li><i class="fa fa-circle text-info"></i> Mobile</li>
                                 </ul>
                             </div>
                         </div>
@@ -273,11 +279,69 @@
                     <!-- Column -->
                     <!-- Column -->
                     <div class="col-lg-4">
-                    <div class="card">
-                    <div class="card card-body mailbox">
+                        <div class="card">
+                            <div class="up-img" style="background-image:url(../assets/images/big/img1.jpg)"></div>
+                            <div class="card-body">
+                                <h5 class=" card-title">Business development of rules</h5>
+                                <span class="label label-info label-rounded">Technology</span>
+                                <p class="m-b-0 m-t-20">Titudin venenatis ipsum aciat. Vestibu ullamer quam. nenatis ipsum ac feugiat. Ibulum ullamcorper.</p>
+                                <div class="d-flex m-t-20">
+                                    <a class="link" href="javascript:void(0)">Read more</a>
+                                    <div class="ml-auto align-self-center">
+                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart-o"></i></a>
+                                        <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-share-alt"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Projects of the Month -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Notification And Feeds -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Start Notification -->
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-body mailbox">
                             <h5 class="card-title">Notification</h5>
                             <div class="message-center ps ps--theme_default ps--active-y" data-ps-id="a045fe3c-cb6e-028e-3a70-8d6ff0d7f6bd">
-                                <!-- Message --><ul class="feeds">
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                    <div class="mail-contnet">
+                                        <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span> </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-success btn-circle"><i class="fa fa-calendar-check-o"></i></div>
+                                    <div class="mail-contnet">
+                                        <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span> </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-info btn-circle"><i class="fa fa-cog"></i></div>
+                                    <div class="mail-contnet">
+                                        <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-primary btn-circle"><i class="fa fa-user"></i></div>
+                                    <div class="mail-contnet">
+                                        <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Notification -->
+                    <!-- Start Feeds -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Feeds</h5>
+                                <ul class="feeds">
                                     <li>
                                         <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
                                     <li>
@@ -299,11 +363,26 @@
                                 </ul>
                             </div>
                         </div>
-                        </div>
                     </div>
+                    <!-- End Feeds -->
                 </div>
-            <footer class="footer">Burner Team </footer>
-            
+                <!-- ============================================================== -->
+                <!-- End Notification And Feeds -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2018 Adminwrap by wrappixel.com </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
@@ -337,97 +416,7 @@
     <script src="../assets/node_modules/d3/d3.min.js"></script>
     <script src="../assets/node_modules/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
-    <!-- <script src="js/dashboard1.js"></script> -->
+    <script src="js/dashboard1.js"></script>
 </body>
+
 </html>
-<script>
-    Morris.Area({
-        element: 'sales-chart',
-        data: [{
-
-                period: '2011',
-                Sales: 50,
-                Earning: 80,
-                Marketing: 20
-            }, {
-                period: '2012',
-                Sales: 130,
-                Earning: 100,
-                Marketing: 80
-            }, {
-                period: '2013',
-                Sales: 80,
-                Earning: 60,
-                Marketing: 70
-            }, {
-                period: '2014',
-                Sales: 70,
-                Earning: {{$asdf}},
-                Marketing: 140
-            }, {
-                period: '2015',
-                Sales: 180,
-                Earning: 150,
-                Marketing: 140
-            }, {
-                period: '2016',
-                Sales: 105,
-                Earning: 100,
-                Marketing: 80
-            },
-            {
-                period: '2017',
-                Sales: 250,
-                Earning: 150,
-                Marketing: 200
-            }
-        ],
-        xkey: 'period',
-        ykeys: ['Sales', 'Earning', 'Marketing'],
-        labels: ['Site A', 'Site B', 'Site C'],
-        pointSize: 0,
-        fillOpacity: 0,
-        pointStrokeColors: ['#20aee3', '#24d2b5', '#6772e5'],
-        behaveLikeLine: true,
-        gridLineColor: '#e0e0e0',
-        lineWidth: 3,
-        hideHover: 'auto',
-        lineColors: ['#20aee3', '#24d2b5', '#6772e5'],
-        resize: true
-
-    });
-
-
-    var chart = c3.generate({
-        bindto: '#visitor',
-        data: {
-            columns: [
-                ['Tidak Tercapai', {{$asdf}}],
-                ['Tercapai', 30],
-                ['Terlampaui', 50],
-            ],
-
-            type: 'donut',
-            onclick: function(d, i) { console.log("onclick", d, i); },
-            onmouseover: function(d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function(d, i) { console.log("onmouseout", d, i); }
-        },
-        donut: {
-            label: {
-                show: false
-            },
-            title: "Visits",
-            width: 20,
-
-        },
-
-        legend: {
-            hide: true
-            //or hide: 'data1'
-            //or hide: ['data1', 'data2']
-        },
-        color: {
-            pattern: [ '#24d2b5', '#6772e5', '#20aee3']
-        }
-    });
-</script>

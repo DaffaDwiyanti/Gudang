@@ -60,12 +60,6 @@ Route::DELETE('gudang/barangHapus/{id}', 'gudangController@barangHapus')->name('
 Route::resource('SimpanB', 'gudangController');
 
 
-Route::get('sales', 'salesController@index');
-Route::get('sales/masuk', 'salesController@masuk');
-Route::get('sales/keluar', 'salesController@keluar');
-Route::get('sales/bkeluar', 'salesController@bkeluar');
-Route::get('sales/barang', 'salesController@barang');
-
-Route::get('sales/bmasuk', 'salesController@bmasuk');
-// Route::resource('sales/bmasuk/{id}', 'salesController@bmasukKranjang');
-
+Route::resource('sales', 'salesController');
+Route::resource('order', 'ordersController');
+Route::resource('target', 'targetsController');
