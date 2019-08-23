@@ -36,7 +36,7 @@ class ordersController extends Controller
      */
     public function create()
     {
-        //
+        return view('sales.createO');
     }
 
     /**
@@ -46,8 +46,14 @@ class ordersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        $input = $request->all();
+
+        $order = $this->orderRepository->create($input);
+
+        Flash::success('Order saved successfully.');
+
+        return redirect(route('order.index'));
     }
 
     /**
@@ -58,7 +64,15 @@ class ordersController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = $this->orderRepository->find($id);
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('order.index'));
+        }
+
+        return view('order.showO')->with('order', $order);
     }
 
     /**
@@ -69,7 +83,15 @@ class ordersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = $this->orderRepository->find($id);
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('order.index'));
+        }
+
+        return view('order.editO')->with('order', $order);
     }
 
     /**
@@ -81,7 +103,19 @@ class ordersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = $this->orderRepository->find($id);
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('order.index'));
+        }
+
+        $order = $this->orderRepository->update($request->all(), $id);
+
+        Flash::success('Order updated successfully.');
+
+        return redirect(route('order.index'));
     }
 
     /**
@@ -92,6 +126,18 @@ class ordersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = $this->orderRepository->find($id);
+
+        if (empty($order)) {
+            Flash::error('Order not found');
+
+            return redirect(route('order.index'));
+        }
+
+        $this->orderRepository->delete($id);
+
+        Flash::success('Order deleted successfully.');
+
+        return redirect(route('order.index'));
     }
 }

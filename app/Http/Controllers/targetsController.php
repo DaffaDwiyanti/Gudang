@@ -1,42 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CreatetargetRequest;
+use App\Http\Requests\UpdatetargetRequest;
+use App\Repositories\targetRepository;
+use App\Http\Controllers\AppBaseController;
+
 use App\Http\Requests\CreatebarangRequest;
 use App\Http\Requests\UpdatebarangRequest;
 use App\Repositories\barangRepository;
 
-use App\Http\Requests\CreatebarangKeluarRequest;
-use App\Http\Requests\UpdatebarangKeluarRequest;
-use App\Repositories\barangKeluarRepository;
-
-use App\Http\Requests\CreatebarangMasukRequest;
-use App\Http\Requests\UpdatebarangMasukRequest;
-use App\Repositories\barangMasukRepository;
-
-
-use App\Http\Requests\CreatetargetRequest;
-use App\Http\Requests\UpdatetargetRequest;
-use App\Repositories\targetRepository;
-
-
-use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Flash;
+use Response;
+
 
 class targetsController extends Controller
 {
 
     private $barangRepository;
-    private $barangKeluarRepository;
-    private $barangMasukRepository;
     private $targetRepository;
 
-    public function __construct(targetRepository $targetRepo, barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
+    public function __construct(targetRepository $targetRepo, barangRepository $barangRepo)
     
     {
         $this->barangRepository = $barangRepo;
-        $this->barangKeluarRepository = $barangKeluarRepo;
-        $this->barangMasukRepository = $barangMasukRepo;
         $this->targetRepository = $targetRepo;
     }
     /**
@@ -58,7 +47,7 @@ class targetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('target.createP');
     }
 
     /**
@@ -69,7 +58,13 @@ class targetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $target = $this->targetRepository->create($input);
+
+        Flash::success('Target saved successfully.');
+
+        return redirect(route('target.index'));
     }
 
     /**
@@ -80,7 +75,15 @@ class targetsController extends Controller
      */
     public function show($id)
     {
-        //
+        $target = $this->targetRepository->find($id);
+
+        if (empty($target)) {
+            Flash::error('Target not found');
+
+            return redirect(route('targets.index'));
+        }
+
+        return view('target.showP')->with('target', $target);
     }
 
     /**
@@ -91,7 +94,15 @@ class targetsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $target = $this->targetRepository->find($id);
+
+        if (empty($target)) {
+            Flash::error('Target not found');
+
+            return redirect(route('targets.index'));
+        }
+
+        return view('target.editP')->with('target', $target);
     }
 
     /**
@@ -103,7 +114,19 @@ class targetsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $target = $this->targetRepository->find($id);
+
+        if (empty($target)) {
+            Flash::error('Target not found');
+
+            return redirect(route('target.index'));
+        }
+
+        $target = $this->targetRepository->update($request->all(), $id);
+
+        Flash::success('Target updated successfully.');
+
+        return redirect(route('target.index'));
     }
 
     /**
@@ -114,6 +137,18 @@ class targetsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $target = $this->targetRepository->find($id);
+
+        if (empty($target)) {
+            Flash::error('Target not found');
+
+            return redirect(route('target.index'));
+        }
+
+        $this->targetRepository->delete($id);
+
+        Flash::success('Target deleted successfully.');
+
+        return redirect(route('target.index'));
     }
 }

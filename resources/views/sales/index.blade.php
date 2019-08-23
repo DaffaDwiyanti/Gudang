@@ -164,13 +164,13 @@
                             <div class="card-body">
                                 <div class="d-flex no-block">
                                     <div>
-                                        <h5 class="card-title m-b-0">Grafik Penjualan</h5>
+                                        <h5 class="card-title m-b-0">Grafik Barang Keluar</h5>
                                     </div>
                                     <div class="ml-auto">
                                         <ul class="list-inline text-center font-12">
-                                            <li><i class="fa fa-circle text-success"></i> SITE A</li>
-                                            <li><i class="fa fa-circle text-info"></i> SITE B</li>
-                                            <li><i class="fa fa-circle text-primary"></i> SITE C</li>
+                                            <li><i class="fa fa-circle text-success"></i> Penjualan </li>
+                                            <li><i class="fa fa-circle text-info"></i> Bonus Pegawai</li>
+                                            <li><i class="fa fa-circle text-primary"></i> Retur </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -340,7 +340,10 @@
     <!-- <script src="js/dashboard1.js"></script> -->
 </body>
 </html>
+<!-- kasih bar notifikasi di menu order,, ketika si notif diklik langsung nampil barang apa yg kudu dipesen, dan berapa -->
+<!-- Grafik bakal nampilin barang keluar dari 6 bulan terakhir, di sum jumlahnya , per kategori keluar && Kategori di keluarin manual->ditampilin make array 2 dimensi supaya ga looping  -->
 <script>
+
     Morris.Area({
         element: 'sales-chart',
         data: [{
@@ -384,7 +387,7 @@
         ],
         xkey: 'period',
         ykeys: ['Sales', 'Earning', 'Marketing'],
-        labels: ['Site A', 'Site B', 'Site C'],
+        labels: ['Penjualan', 'Bonus Pegawai', 'Retur'],
         pointSize: 0,
         fillOpacity: 0,
         pointStrokeColors: ['#20aee3', '#24d2b5', '#6772e5'],
@@ -416,7 +419,7 @@
             label: {
                 show: false
             },
-            title: "Visits",
+            title: "Pencapaian",
             width: 20,
 
         },
