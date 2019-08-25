@@ -7,6 +7,11 @@ use App\Http\Requests\UpdateorderRequest;
 use App\Repositories\orderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+
+use App\Models\User;
+use App\Models\suplier;
+use App\Models\barang;
+use Auth;
 use Flash;
 use Response;
 
@@ -36,7 +41,20 @@ class ordersController extends Controller
      */
     public function create()
     {
-        return view('sales.createO');
+        $mytime = \Carbon\Carbon::now();
+        $mytimes = $mytime->toDateTimeString();
+
+        $barangs = barang::all();
+
+        $users = Auth::user();
+
+        $supliers = suplier::all();
+
+        return view('sales.createO')
+        ->with('mytimes',$mytimes)
+        ->with('barangs',$barangs)
+        ->with('users',$users)
+        ->with('supliers',$supliers);
     }
 
     /**

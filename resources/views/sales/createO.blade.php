@@ -137,11 +137,8 @@
                         <h3 class="text-themecolor">Profile</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item active">Order</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -170,54 +167,54 @@
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
-                                    <div class="form-group">
-                                        <label class="col-md-12">Full Name</label>
+                                <form class="form-horizontal form-material" action="{{ route('order.store') }}" method="post">
+                                
+                                
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                                        <label class="col-md-12">Tanggal</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                            <input type="text" value="{{$mytimes}}" id="tanggal" name="tanggal" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <label class="col-md-12">Jumlah</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="text" value="" id="jumlah"  name="jumlah" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Password</label>
+                                        <label class="col-md-12">Penanggung Jawab</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
+                                            <input type="text" value="{{$users['name']}}" id="admin" name="admin" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
+                                        <label class="col-sm-12">ID Barang</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
+                                            <select class="form-control form-control-line" id="id_barang" name="id_barang">
+                                            @foreach($barangs as $p)
+                                                <option value="{{$p->id}}">{{$p->namaBarang}}</option>
+                                            @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">ID Suplier</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line" id="id_suplier" name="id_suplier">
+                                            @foreach($supliers as $s)
+                                                <option value="{{$s->id}}">{{$s->namaSuplier}}</option>
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <input type="submit" class="btn btn-success" value="Pesan" >
                                         </div>
                                     </div>
+                                    
                                 </form>
                             </div>
                         </div>

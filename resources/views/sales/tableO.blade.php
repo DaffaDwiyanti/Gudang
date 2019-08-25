@@ -178,7 +178,7 @@
                                                 <td>{{$p->tanggal}}</td>
                                                 <td>{{$p->jumlah}}</td>
                                                 <td>{{$p->id_barang}}</td>
-                                                <td>{{$p->id_supplier}}</td>
+                                                <td>{{$p->id_suplier}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

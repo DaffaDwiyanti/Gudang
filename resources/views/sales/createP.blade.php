@@ -170,7 +170,10 @@
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" action="{{ route('target.store') }}" method="post">
+                                
+                                
+                    {{ csrf_field() }}
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
