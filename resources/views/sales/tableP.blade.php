@@ -141,7 +141,7 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Tambah Target</a>
+                        <a href="{{route('target.create')}}" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Tambah Target</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->

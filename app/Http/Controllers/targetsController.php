@@ -47,7 +47,7 @@ class targetsController extends Controller
      */
     public function create()
     {
-        return view('target.createP');
+        return view('sales.createP');
     }
 
     /**
