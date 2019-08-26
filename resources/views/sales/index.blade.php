@@ -229,13 +229,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        
+                                            @foreach($grafik1 as $p)
+                                            {
                                             <tr>
                                                 <td style="width:50px;"><span class="round">S</span></td>
                                                 <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
+                                                    <h6>{{date('M', strtotime($p->tanggal))}}</h6><small class="text-muted">Web Designer</small></td>
                                                 <td>Elite Admin</td>
                                                 <td>$3.9K</td>
                                             </tr>
+                                            }
+                                            @endforeach
                                             <tr class="active">
                                                 <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></td>
                                                 <td>
@@ -344,46 +349,17 @@
 <!-- Grafik bakal nampilin barang keluar dari 6 bulan terakhir, di sum jumlahnya , per kategori keluar && Kategori di keluarin manual->ditampilin make array 2 dimensi supaya ga looping  -->
 <script>
 
-    Morris.Area({
+        Morris.Area({
         element: 'sales-chart',
-        data: [{
-
-                period: '2011',
-                Sales: 50,
-                Earning: 80,
-                Marketing: 20
-            }, {
-                period: '2012',
-                Sales: 130,
-                Earning: 100,
-                Marketing: 80
-            }, {
-                period: '2013',
-                Sales: 80,
-                Earning: 60,
-                Marketing: 70
-            }, {
-                period: '2014',
-                Sales: 70,
-                Earning: {{$asdf}},
-                Marketing: 140
-            }, {
-                period: '2015',
-                Sales: 180,
-                Earning: 150,
-                Marketing: 140
-            }, {
-                period: '2016',
-                Sales: 105,
-                Earning: 100,
-                Marketing: 80
-            },
+        data: [
+            @foreach($grafik1 as $p)
             {
-                period: '2017',
-                Sales: 250,
-                Earning: 150,
-                Marketing: 200
-            }
+                period: '{{date('m', strtotime($p->tanggal))}}',
+                Sales: {{$p->quantitas}},
+                Earning: 1,
+                Marketing: 20
+            },
+            @endforeach
         ],
         xkey: 'period',
         ykeys: ['Sales', 'Earning', 'Marketing'],
@@ -405,7 +381,7 @@
         bindto: '#visitor',
         data: {
             columns: [
-                ['Tidak Tercapai', {{$asdf}}],
+                ['Tidak Tercapai', 20],
                 ['Tercapai', 30],
                 ['Terlampaui', 50],
             ],

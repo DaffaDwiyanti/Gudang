@@ -18,6 +18,7 @@ use App\Repositories\barangMasukRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -43,8 +44,8 @@ class salesController extends Controller
      */
     public function index()
     {
-        $asdf = 20;
-        return view('sales.index')->with('asdf' ,  $asdf);
+        $grafik1 = DB::table('qw_resumeKeluar')->select('*')->get();
+        return view('sales.index')->with('grafik1' ,  $grafik1);
     }
 
     /**
