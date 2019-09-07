@@ -30,8 +30,8 @@ class salesController extends Controller
     private $barangMasukRepository;
     public $flagP = "i";
 
-    public function __construct(barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo,barangMasukRepository $barangMasukRepo)
-    
+    public function __construct(barangRepository $barangRepo, barangKeluarRepository $barangKeluarRepo, barangMasukRepository $barangMasukRepo)
+
     {
         $this->barangRepository = $barangRepo;
         $this->barangKeluarRepository = $barangKeluarRepo;
@@ -44,8 +44,8 @@ class salesController extends Controller
      */
     public function index()
     {
-        $grafik1 = DB::table('qw_resumeKeluar')->select('*')->get();
-        return view('sales.index')->with('grafik1' ,  $grafik1);
+        $grafik1 = DB::table('')->select('*')->get();
+        return view('sales.index')->with('grafik1',  $grafik1);
     }
 
     /**
@@ -88,7 +88,9 @@ class salesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $salesEdit = $this->barangRepository->find($id);
+
+        return view('sales.edit')->with('sales', $salesEdit);
     }
 
     /**
@@ -100,7 +102,13 @@ class salesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $salesUpdate = $this->barangRepository->find($id);
+
+        $salesUpdate = $this->barangRepository->update($request->all(), $id);
+
+        Flash::success('Sales updated successfully.');
+
+        return redirect(route('sales.index'));
     }
 
     /**
@@ -111,6 +119,13 @@ class salesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $salesDelete = $this->barangRepository->find($id);
+
+        $this->barangRepository->delete($id);
+
+        Flash::success('Sales deleted successfully.');
+
+        return redirect(route('sales.index'));
+    }
     }
 }
