@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatekeluarDetailRequest;
 use App\Repositories\keluarDetailRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\barang;
 use Flash;
 use Response;
 
@@ -57,6 +58,7 @@ class keluarDetailController extends AppBaseController
         $input = $request->all();
 
         $keluarDetail = $this->keluarDetailRepository->create($input);
+        
 
         Flash::success('Keluar Detail saved successfully.');
 

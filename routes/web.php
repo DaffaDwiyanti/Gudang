@@ -48,14 +48,15 @@ Route::resource('gudangs', 'gudangController');
 Route::get('gudang', 'gudangController@index')->name('gudang');
 Route::get('gudang/masuk', 'gudangController@masuk');
 Route::get('gudang/bmasuk', 'gudangController@bmasuk');
-
 Route::get('gudang/bmasuk/{id}', 'gudangController@bmasukKranjang');
+
+
 Route::get('gudang/keluar', 'gudangController@keluar');
 Route::get('gudang/bkeluar', 'gudangController@bkeluar');
 
 Route::get('gudang/barang', 'gudangController@barang');
 Route::PATCH('gudang/update/{id}', 'gudangController@updateB')->name('gudang/updateB');
-Route::get('gudang/barangEdit/{id}', 'gudangController@barangEdit')->name('gudang/barangEdit');
+Route::post('gudang/barangEdit/{id}', 'gudangController@barangEdit')->name('gudang/barangEdit');
 Route::DELETE('gudang/barangHapus/{id}', 'gudangController@barangHapus')->name('gudang/barangHapus');
 Route::resource('SimpanB', 'gudangController');
 
