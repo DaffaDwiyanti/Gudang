@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,16 +60,16 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/ss.jpg" alt="homepage" class="dark-logo" style="width:71px; margin-left:60px; "/>
+                            <img src="../assets/images/ss.jpg" alt="homepage" class="dark-logo" style="width:71px; margin-left:60px; " />
                             <!-- Light Logo icon -->
                             <!-- <img src="../assets/images/S.png" alt="homepage" class="light-logo" /> -->
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
-                         <!-- dark Logo text -->
-                         <!-- <img src="../assets/images/S.png" alt="homepage" class="dark-logo" /> -->
-                         <!-- Light Logo text -->    
-                         <!-- <img src="../assets/images/S.png" class="light-logo" alt="homepage" /></span> </a> -->
+                            <!-- dark Logo text -->
+                            <!-- <img src="../assets/images/S.png" alt="homepage" class="dark-logo" /> -->
+                            <!-- Light Logo text -->
+                            <!-- <img src="../assets/images/S.png" class="light-logo" alt="homepage" /></span> </a> -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -149,7 +148,7 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
-                    
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -229,13 +228,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        
+
                                             @foreach($grafik1 as $p)
                                             {
                                             <tr>
                                                 <td style="width:50px;"><span class="round">S</span></td>
                                                 <td>
-                                                    <h6>{{date('M', strtotime($p->tanggal))}}</h6><small class="text-muted">Web Designer</small></td>
+                                                    <h6>{{date('M', strtotime($p->tanggal))}}</h6><small class="text-muted">Web Designer</small>
+                                                </td>
                                                 <td>Elite Admin</td>
                                                 <td>$3.9K</td>
                                             </tr>
@@ -244,28 +244,32 @@
                                             <tr class="active">
                                                 <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></td>
                                                 <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
+                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small>
+                                                </td>
                                                 <td>Real Homes</td>
                                                 <td>$23.9K</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="round round-success">B</span></td>
                                                 <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
+                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small>
+                                                </td>
                                                 <td>MedicalPro Theme</td>
                                                 <td>$12.9K</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="round round-primary">N</span></td>
                                                 <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
+                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small>
+                                                </td>
                                                 <td>Elite Admin</td>
                                                 <td>$10.9K</td>
                                             </tr>
                                             <tr>
                                                 <td><span class="round round-warning">M</span></td>
                                                 <td>
-                                                    <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small></td>
+                                                    <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small>
+                                                </td>
                                                 <td>Helping Hands</td>
                                                 <td>$12.9K</td>
                                             </tr>
@@ -278,84 +282,98 @@
                     <!-- Column -->
                     <!-- Column -->
                     <div class="col-lg-4">
-                    <div class="card">
-                    <div class="card card-body mailbox">
-                            <h5 class="card-title">Notification</h5>
-                            <div class="message-center ps ps--theme_default ps--active-y" data-ps-id="a045fe3c-cb6e-028e-3a70-8d6ff0d7f6bd">
-                                <!-- Message --><ul class="feeds">
-                                    <li>
-                                        <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
-                                    <li>
-                                        <div class="bg-light-success"><i class="fa fa-server"></i></div> Server #1 overloaded.<span class="text-muted">2 Hours ago</span></li>
-                                    <li>
-                                        <div class="bg-light-warning"><i class="fa fa-shopping-cart"></i></div> New order received.<span class="text-muted">31 May</span></li>
-                                    <li>
-                                        <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user registered.<span class="text-muted">30 May</span></li>
-                                    <li>
-                                        <div class="bg-light-inverse"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span></li>
-                                    <li>
-                                        <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
-                                    <li>
-                                        <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user registered.<span class="text-muted">30 May</span></li>
-                                    <li>
-                                        <div class="bg-light-inverse"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span></li>
-                                    <li>
-                                        <div class="bg-light-primary"><i class="fa fa-cog"></i></div> You have 4 pending tasks. <span class="text-muted">27 May</span></li>
-                                </ul>
+                        <div class="card">
+                            <div class="card card-body mailbox">
+                                <h5 class="card-title">Notification</h5>
+                                <div class="message-center ps ps--theme_default ps--active-y" data-ps-id="a045fe3c-cb6e-028e-3a70-8d6ff0d7f6bd">
+                                    <!-- Message -->
+                                    <ul class="feeds">
+                                        <li>
+                                            <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-success"><i class="fa fa-server"></i></div> Server #1 overloaded.<span class="text-muted">2 Hours ago</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-warning"><i class="fa fa-shopping-cart"></i></div> New order received.<span class="text-muted">31 May</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user registered.<span class="text-muted">30 May</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-inverse"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user registered.<span class="text-muted">30 May</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-inverse"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span>
+                                        </li>
+                                        <li>
+                                            <div class="bg-light-primary"><i class="fa fa-cog"></i></div> You have 4 pending tasks. <span class="text-muted">27 May</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
-            <footer class="footer">Burner Team </footer>
-            
+                <footer class="footer">Burner Team </footer>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Wrapper -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap popper Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <!--morris JavaScript -->
-    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
-    <!--c3 JavaScript -->
-    <script src="../assets/node_modules/d3/d3.min.js"></script>
-    <script src="../assets/node_modules/c3-master/c3.min.js"></script>
-    <!-- Chart JS -->
-    <!-- <script src="js/dashboard1.js"></script> -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+        <!-- Bootstrap popper Core JavaScript -->
+        <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+        <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="js/perfect-scrollbar.jquery.min.js"></script>
+        <!--Wave Effects -->
+        <script src="js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- This page plugins -->
+        <!-- ============================================================== -->
+        <!--morris JavaScript -->
+        <script src="../assets/node_modules/raphael/raphael-min.js"></script>
+        <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+        <!--c3 JavaScript -->
+        <script src="../assets/node_modules/d3/d3.min.js"></script>
+        <script src="../assets/node_modules/c3-master/c3.min.js"></script>
+        <!-- Chart JS -->
+        <!-- <script src="js/dashboard1.js"></script> -->
 </body>
+
 </html>
 <!-- kasih bar notifikasi di menu order,, ketika si notif diklik langsung nampil barang apa yg kudu dipesen, dan berapa -->
 <!-- Grafik bakal nampilin barang keluar dari 6 bulan terakhir, di sum jumlahnya , per kategori keluar && Kategori di keluarin manual->ditampilin make array 2 dimensi supaya ga looping  -->
 <script>
-
-        Morris.Area({
+    Morris.Area({
         element: 'sales-chart',
         data: [
-            @foreach($grafik1 as $p)
-            {
-                period: '{{date('m', strtotime($p->tanggal))}}',
-                Sales: {{$p->quantitas}},
+            @foreach($grafik1 as $p) {
+                period: '{{date('
+                m ', strtotime($p->tanggal))}}',
+                Sales: {
+                    {
+                        $p - > quantitas
+                    }
+                },
                 Earning: 1,
                 Marketing: 20
             },
@@ -387,9 +405,15 @@
             ],
 
             type: 'donut',
-            onclick: function(d, i) { console.log("onclick", d, i); },
-            onmouseover: function(d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function(d, i) { console.log("onmouseout", d, i); }
+            onclick: function(d, i) {
+                console.log("onclick", d, i);
+            },
+            onmouseover: function(d, i) {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: function(d, i) {
+                console.log("onmouseout", d, i);
+            }
         },
         donut: {
             label: {
@@ -406,7 +430,7 @@
             //or hide: ['data1', 'data2']
         },
         color: {
-            pattern: [ '#24d2b5', '#6772e5', '#20aee3']
+            pattern: ['#24d2b5', '#6772e5', '#20aee3']
         }
     });
 </script>
