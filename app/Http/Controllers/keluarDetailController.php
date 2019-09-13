@@ -8,6 +8,9 @@ use App\Repositories\keluarDetailRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\barang;
+
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 use Flash;
 use Response;
 
@@ -55,9 +58,14 @@ class keluarDetailController extends AppBaseController
      */
     public function store(CreatekeluarDetailRequest $request)
     {
+
         $input = $request->all();
 
         $keluarDetail = $this->keluarDetailRepository->create($input);
+
+        $barang = barang::find($request->id_barang);
+        $barang->stok = $barang->stok - $request->quantitas;
+        $barang->save();
         
 
         Flash::success('Keluar Detail saved successfully.');

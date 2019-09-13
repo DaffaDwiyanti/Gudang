@@ -44,7 +44,7 @@ class salesController extends Controller
      */
     public function index()
     {
-        $grafik1 = DB::table('')->select('*')->get();
+        $grafik1 = DB::table('qw_resumeKeluar')->select('*')->get();
         return view('sales.index')->with('grafik1',  $grafik1);
     }
 
@@ -105,6 +105,7 @@ class salesController extends Controller
         $salesUpdate = $this->barangRepository->find($id);
 
         $salesUpdate = $this->barangRepository->update($request->all(), $id);
+        
 
         Flash::success('Sales updated successfully.');
 
@@ -127,5 +128,5 @@ class salesController extends Controller
 
         return redirect(route('sales.index'));
     }
-    }
+    
 }

@@ -1,0 +1,15 @@
+
+        data: [
+            @foreach($grafik1 as $p) {
+                period: '{{date('
+                m ', strtotime($p->tanggal))}}',
+                Sales: {
+                    {
+                        $p - > quantitas
+                    }
+                },
+                Earning: 1,
+                Marketing: 20
+            },
+            @endforeach
+        ],

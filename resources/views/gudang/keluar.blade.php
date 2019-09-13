@@ -112,7 +112,6 @@
                         <th>Tanggal</th>
                         <th>Admin</th>
                         <th>Jenis Keluar</th>
-                        <th colspan="2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -122,8 +121,6 @@
                         <td>{!! $keluar->tanggal !!}</td>
                         <td>{!! $keluar->admin !!}</td>
                         <td>{!! $keluar->jenisKeluar !!}</td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Edit</a></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Delete</a></td>
                       </tr>
                     </tbody>
         @endforeach

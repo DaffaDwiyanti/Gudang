@@ -110,8 +110,7 @@
                     <thead>
                       <tr>
                         <th>Tanggal</th>
-                        <th>Admin</th>
-                        <th colspan="2">Action</th>
+                        <th>Penanggung Jawab</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -120,8 +119,6 @@
                       <tr>
                         <td>{!! $masuk->tanggal !!}</td>
                         <td>{!! $masuk->admin !!}</td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Edit</a></td>
-                        <td><a href="customer-order.html" class="btn btn-template-outlined btn-sm">Delete</a></td>
                       </tr>
                     </tbody>
         @endforeach

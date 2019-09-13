@@ -7,6 +7,8 @@ use App\Http\Requests\UpdatemasukDetailRequest;
 use App\Repositories\masukDetailRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\barang;
+
 use Flash;
 use Response;
 
@@ -54,11 +56,17 @@ class masukDetailController extends AppBaseController
      */
     public function store(CreatemasukDetailRequest $request)
     {
+
         $input = $request->all();
 
         $masukDetail = $this->masukDetailRepository->create($input);
 
-        Flash::success('Masuk Detail saved successfully.');
+        $barang = barang::find($request->id_barang);
+        $barang->stok = $barang->stok + $request->quantitas;
+        $barang->save();
+        
+
+        Flash::success("Masuk Detail saved successfully.");
 
         return redirect(route('masukDetails.index'));
     }

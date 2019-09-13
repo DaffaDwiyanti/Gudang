@@ -367,8 +367,7 @@
         element: 'sales-chart',
         data: [
             @foreach($grafik1 as $p) {
-                period: '{{date('
-                m ', strtotime($p->tanggal))}}',
+                period: '{{date('m ', strtotime($p->tanggal))}}',
                 Sales: {
                     {
                         $p - > quantitas
