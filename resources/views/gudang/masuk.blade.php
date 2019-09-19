@@ -50,14 +50,14 @@
 
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Barang Masuk <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="{{ url('gudang/masuk') }}" class="nav-link">Olat Barang Masuk</a></li>
+                    <li class="dropdown-item"><a href="{{ url('gudang/masuk') }}" class="nav-link">Riwayat Barang Masuk</a></li>
                     <li class="dropdown-item"><a href="{{ url('gudang/bmasuk') }}" class="nav-link">Catat Barang Masuk</a></li>
                   </ul>
                 </li>
                 
                 <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Barang Keluar <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="{{ url('gudang/keluar') }}" class="nav-link">Olat Barang Keluar</a></li>
+                    <li class="dropdown-item"><a href="{{ url('gudang/keluar') }}" class="nav-link">Riwayat Barang Keluar</a></li>
                     <li class="dropdown-item"><a href="{{ url('gudang/bkeluar') }}" class="nav-link">Catat Barang Keluar</a></li>
                   </ul>
                 </li>
@@ -117,10 +117,12 @@
 
         @foreach($masuks as $masuk)
                       <tr>
-                        <td>{!! $masuk->tanggal !!}</td>
-                        <td>{!! $masuk->admin !!}</td>
+                        <td><a href="{{ route('gudang/masukD/' , ['id'=>$masuk->id]) }}" >{!! $masuk->tanggal !!}</a></td>
+                        <td><a href="{{ route('gudang/masukD/' , ['id'=>$masuk->id]) }}" >{!! $masuk->admin !!}</a></td>
                       </tr>
+                      
                     </tbody>
+                    
         @endforeach
                   </table>
 

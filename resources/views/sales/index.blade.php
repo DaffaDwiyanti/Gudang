@@ -230,7 +230,6 @@
                                         <tbody>
 
                                             @foreach($grafik1 as $p)
-                                            {
                                             <tr>
                                                 <td style="width:50px;"><span class="round">S</span></td>
                                                 <td>
@@ -239,7 +238,6 @@
                                                 <td>Elite Admin</td>
                                                 <td>$3.9K</td>
                                             </tr>
-                                            }
                                             @endforeach
                                             <tr class="active">
                                                 <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></td>
@@ -366,16 +364,8 @@
     Morris.Area({
         element: 'sales-chart',
         data: [
-            @foreach($grafik1 as $p) {
-                period: '{{date('m ', strtotime($p->tanggal))}}',
-                Sales: {
-                    {
-                        $p - > quantitas
-                    }
-                },
-                Earning: 1,
-                Marketing: 20
-            },
+            @foreach($grafik1 as $p) 
+            {period: '{{$p->tanggal }}',Sales: {{$p->id}},Earning: {{$p->stok}},Marketing: 20},
             @endforeach
         ],
         xkey: 'period',

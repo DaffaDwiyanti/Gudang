@@ -15,11 +15,14 @@ use App\Http\Requests\UpdatebarangMasukRequest;
 use App\Repositories\barangMasukRepository;
 
 
-use App\Http\Controllers\AppBaseController;
+use App\Http\Controllers\AppBaseController; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Models\barang;
+use App\Models\masukDetail;
+use App\Models\keluarDetail;
 use Flash;
 use Response;
 
@@ -59,6 +62,16 @@ class gudangController extends Controller
         $masuks = $this->barangMasukRepository->all();
         return view('gudang.masuk')->with('masuks', $masuks);
         $flagP == "m";
+    }
+    public function masukDetail($id){
+        $details = DB::table('qw_resumeKeluar')->where('id_keluar', $id)->get();
+        return view('gudang.masukDetail')->with('details', $details);
+        
+    }
+    public function keluarDetail($id){
+        $details = keluarDetail::where('id_keluar', $id)->get();
+        return view('gudang.keluarDetail')->with('details', $details);
+        
     }
     public function bmasuk(){
         $idmasuk = $this->barangMasukRepository->all();

@@ -8,6 +8,7 @@ use App\Repositories\masukDetailRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\barang;
+use App\Models\barangMasuk;
 
 use Flash;
 use Response;
@@ -44,7 +45,11 @@ class masukDetailController extends AppBaseController
      */
     public function create()
     {
-        return view('masuk_details.create');
+        $barang = barang::All();
+        $masuk = barangMasuk::All();
+        return view('masuk_details.create')
+        ->with('barang', $barang)
+        ->with('idms', $masuk);
     }
 
     /**

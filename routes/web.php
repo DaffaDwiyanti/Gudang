@@ -49,6 +49,8 @@ Route::get('gudang', 'gudangController@index')->name('gudang');
 Route::get('gudang/masuk', 'gudangController@masuk');
 Route::get('gudang/bmasuk', 'gudangController@bmasuk');
 Route::get('gudang/bmasuk/{id}', 'gudangController@bmasukKranjang');
+Route::get('gudang/masukD/{id}', 'gudangController@masukDetail')->name('gudang/masukD/');
+Route::get('gudang/keluarD/{id}', 'gudangController@keluarDetail')->name('gudang/keluarD/');
 
 
 Route::get('gudang/keluar', 'gudangController@keluar');
@@ -64,3 +66,8 @@ Route::resource('SimpanB', 'gudangController');
 Route::resource('sales', 'salesController');
 Route::resource('order', 'ordersController');
 Route::resource('target', 'targetsController');
+
+
+Route::resource('jenisKeluars', 'JenisKeluarController');
+
+Route::resource('jenisMasuks', 'JenisMasukController');

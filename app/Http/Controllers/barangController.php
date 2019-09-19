@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatebarangRequest;
 use App\Repositories\barangRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\suplier;
 use Flash;
 use Response;
 
@@ -32,7 +33,7 @@ class barangController extends AppBaseController
         $barangs = $this->barangRepository->all();
 
         return view('barangs.index')
-            ->with('barangs', $barangs);
+             ->with('barangs', $barangs);
     }
 
     /**
@@ -42,7 +43,10 @@ class barangController extends AppBaseController
      */
     public function create()
     {
-        return view('barangs.create');
+        $supliers = suplier::All();
+
+        return view('barangs.create')
+             ->with('supliers', $supliers);
     }
 
     /**

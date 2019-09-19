@@ -8,6 +8,7 @@ use App\Repositories\keluarDetailRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\barang;
+use App\Models\barangKeluar;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +47,11 @@ class keluarDetailController extends AppBaseController
      */
     public function create()
     {
-        return view('keluar_details.create');
+        $barang = barang::All();
+        $keluar = barangKeluar::All();
+        return view('keluar_details.create')
+        ->with('barang', $barang)
+        ->with('idks', $keluar);
     }
 
     /**

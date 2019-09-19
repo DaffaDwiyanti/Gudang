@@ -44,7 +44,7 @@ class salesController extends Controller
      */
     public function index()
     {
-        $grafik1 = DB::table('qw_resumeKeluar')->select('*')->get();
+        $grafik1 = DB::table('qw_resumeKeluar')->get();
         return view('sales.index')->with('grafik1',  $grafik1);
     }
 

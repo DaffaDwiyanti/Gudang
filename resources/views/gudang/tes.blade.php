@@ -1,3 +1,6 @@
+
+                      <a href="{{url(gudang/masukD/$masuk->id)}">
+
 <!DOCTYPE html>
 <html>
   <head>

@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateorderRequest;
 use App\Repositories\orderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\barang;
+use App\Models\suplier;
+use Auth;
 use Flash;
 use Response;
 
@@ -42,7 +45,13 @@ class orderController extends AppBaseController
      */
     public function create()
     {
-        return view('orders.create');
+        $barang = barang::All();
+        $user =Auth::user();
+        $suplier = suplier::All();
+        return view('orders.create')
+        ->with('barang', $barang)
+        ->with('user', $user)
+        ->with('suplier', $suplier);
     }
 
     /**

@@ -30,3 +30,11 @@
 <li class="{{ Request::is('barangKeluars*') ? 'active' : '' }}">
     <a href="{!! route('barangKeluars.index') !!}"><i class="fa fa-edit"></i><span>Barang Keluar</span></a>
 </li>
+<li class="{{ Request::is('jenisKeluars*') ? 'active' : '' }}">
+    <a href="{!! route('jenisKeluars.index') !!}"><i class="fa fa-edit"></i><span>Jenis Keluars</span></a>
+</li>
+
+<li class="{{ Request::is('jenisMasuks*') ? 'active' : '' }}">
+    <a href="{!! route('jenisMasuks.index') !!}"><i class="fa fa-edit"></i><span>Jenis Masuks</span></a>
+</li>
+
