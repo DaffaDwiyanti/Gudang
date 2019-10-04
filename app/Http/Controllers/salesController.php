@@ -44,8 +44,11 @@ class salesController extends Controller
      */
     public function index()
     {
-        $grafik1 = DB::table('qw_resumeKeluar')->get();
-        return view('sales.index')->with('grafik1',  $grafik1);
+        $grafik1 = DB::table('grafikKeluar')->select('*')->get();
+        $penjualan = DB::table('qw_resumeKeluar')->where('jenisKeluar', "Penjualan")->count();
+        $resume = DB::table('qw_resumeKeluar')->get();
+        $target = DB::table('qw_target')->get();
+        return view('sales.index')->with('grafik1',  $grafik1)->with('penjualan',  $penjualan)->with('resume',  $resume)->with('target', $target);
     }
 
     /**

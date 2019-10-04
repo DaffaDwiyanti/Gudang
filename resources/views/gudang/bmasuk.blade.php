@@ -143,11 +143,11 @@
                       <tbody>
 
         <?php $total = 0 ?>
- @if(session('kranjang'))
-     @foreach($datas as $data)
+ @if(session('barang'))
+     @foreach( Session::get('barang') as $data)
                       <tr>
                           <td><a href="#"><img src="../img/detailsquare.jpg" alt="White Blouse Armani" class="img-fluid"></a></td>
-                          <td><a href="#">{{$data->nama}}</a></td>
+                          <td><a href="#">{{$data->namaBarang}}</a></td>
                           <td>
                           </td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
@@ -168,7 +168,7 @@
                   <div class="box-footer d-flex justify-content-between align-items-center">
                     <div class="left-col"></div>
                     <div class="right-col">
-                      <button type="submit" class="btn btn-template-outlined">Proceed checkout <i class="fa fa-chevron-right"></i></button>
+                      <a href="/gudang/bmasuk/{{$barang->id }}"></a> <button type="submit" class="btn btn-template-outlined">Proceed checkout <i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
                 </form>

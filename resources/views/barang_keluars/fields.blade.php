@@ -22,7 +22,7 @@
 <!-- Jeniskeluar Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('jenisKeluar', 'Jeniskeluar:') !!}
-    {!! Form::select('jenisKeluar', ['1' => 'Bonus', '2' => 'Refund', '3' => 'Penjualan'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('jenisKeluar', [21' => 'Bonus', '3' => 'Refund', '1' => 'Penjualan'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

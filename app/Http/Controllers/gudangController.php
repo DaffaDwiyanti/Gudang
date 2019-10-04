@@ -19,10 +19,17 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+
+// use Darryldecode\Cart\Cart;
+use Cart;
+use Validator;
 
 use App\Models\barang;
+use App\Models\User;
 use App\Models\masukDetail;
 use App\Models\keluarDetail;
+use Session;
 use Flash;
 use Response;
 
@@ -84,55 +91,15 @@ class gudangController extends Controller
     }
     public function bmasukKranjang($id){
 
-        $barangs = $this->barangRepository->all();
-        if (!$barangs) {
-            abort(404);
-        }else{
-        $datas = barang::where('id', $id)->get();
+        $userId = Auth::user()->id;
+        $datas = barang::where('id', $id)->first();
+        Session::push('barang', $datas);
 
-            foreach ($datas as $data) {
-                $kranjang = session()->get('kranjang');
-                if (!$kranjang) {
-                    $kranjang =[
-                        $id =>[
-                            "nama" => $data->namaBarang,
-                            "kuantitas" => 1,
-                            "deskripsi" => $data->deskripsi
-                    ]];
-                    session()->put('kranjang', $kranjang);
-                    echo "<script>alert('nambah barang');</script>";
-                    return view('gudang.bmasuk')->with('datas' , $datas)->with('barangs', $barangs);
-                }
-    
-                else if (isset($cart[$id])) {
-                    $datas = session()->all('kranjang');
-                    $cart[$id]['kuantitas']++;
-                    session()->put('kranjang', $kranjang);
-                    echo "<script>alert('nambah kuantitas');</script>";
-                    return view('gudang.bmasuk')->with('datas' , $datas)->with('barangs', $barangs);
-
-                }
-                else{
-                    $datas = session()->all('kranjang');
-                    $kranjang[$id] = [
-                        "nama" => $data->namaBarang,
-                        "kuantitas" => 1,
-                        "deskripsi" => $data->deskripsi
-                    ];
-                    session()->put('kranjang', $kranjang);
-
-                    echo "<script>alert('barang baru');</script>";
-                    return view('gudang.bmasuk')->with('datas' , $datas)->with('barangs', $barangs);
-                    // return redirect('/gudang/bmasuk')->with(compact('datas'))->with(compact('barangs'));
-                }
-
-    
-                }
-            
-        }
-
-
+        $keranjang = Session::get('barang');
+        return view('gudang.bmasuk')->with('keranjang', $keranjang);
     }
+    
+
     
     //---------------- BARANG KELUAR & SUMMARY KELUAR
     public function keluar(){

@@ -97,6 +97,8 @@ class barangController extends AppBaseController
     public function edit($id)
     {
         $barang = $this->barangRepository->find($id);
+        $supliers = suplier::All();
+        
 
         if (empty($barang)) {
             Flash::error('Barang not found');
@@ -104,7 +106,8 @@ class barangController extends AppBaseController
             return redirect(route('barangs.index'));
         }
 
-        return view('barangs.edit')->with('barang', $barang);
+        return view('barangs.edit')->with('barang', $barang)
+             ->with('supliers', $supliers);;
     }
 
     /**

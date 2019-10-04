@@ -50,6 +50,7 @@ Route::get('gudang/masuk', 'gudangController@masuk');
 Route::get('gudang/bmasuk', 'gudangController@bmasuk');
 Route::get('gudang/bmasuk/{id}', 'gudangController@bmasukKranjang');
 Route::get('gudang/masukD/{id}', 'gudangController@masukDetail')->name('gudang/masukD/');
+Route::post('gudang/bmasuk/checkout','gudangController@checkout')->name('gudang/bmasuk/checkout');
 Route::get('gudang/keluarD/{id}', 'gudangController@keluarDetail')->name('gudang/keluarD/');
 
 

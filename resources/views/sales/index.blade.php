@@ -207,70 +207,30 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div>
-                                        <h5 class="card-title">Projects of the Month</h5>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <select class="custom-select b-0">
-                                            <option selected="">January</option>
-                                            <option value="1">February</option>
-                                            <option value="2">March</option>
-                                            <option value="3">April</option>
-                                        </select>
+                                        <h5 class="card-title">Pengeluaran Terakhir</h5>
                                     </div>
                                 </div>
                                 <div class="table-responsive m-t-20 no-wrap">
                                     <table class="table vm no-th-brd pro-of-month">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">Assigned</th>
-                                                <th>Name</th>
-                                                <th>Budget</th>
+                                                <th colspan="2">Barang</th>
+                                                <th>Jenis</th>
+                                                <th>Quantitas</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @foreach($grafik1 as $p)
+                                            @foreach($resume as $p)
                                             <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
+                                                <td style="width:50px;"><span class="round round-success">{{substr($p->namaBarang, 0,1)}}</span></td>
                                                 <td>
-                                                    <h6>{{date('M', strtotime($p->tanggal))}}</h6><small class="text-muted">Web Designer</small>
+                                                    <h6>{{$p->namaBarang}}</h6><small class="text-muted">{{$p->tanggal}}</small>
                                                 </td>
-                                                <td>Elite Admin</td>
-                                                <td>$3.9K</td>
+                                                <td>{{$p->jenisKeluar}}</td>
+                                                <td>{{$p->quantitas}}</td>
                                             </tr>
                                             @endforeach
-                                            <tr class="active">
-                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></td>
-                                                <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small>
-                                                </td>
-                                                <td>Real Homes</td>
-                                                <td>$23.9K</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-success">B</span></td>
-                                                <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small>
-                                                </td>
-                                                <td>MedicalPro Theme</td>
-                                                <td>$12.9K</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-primary">N</span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small>
-                                                </td>
-                                                <td>Elite Admin</td>
-                                                <td>$10.9K</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-warning">M</span></td>
-                                                <td>
-                                                    <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small>
-                                                </td>
-                                                <td>Helping Hands</td>
-                                                <td>$12.9K</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -286,9 +246,11 @@
                                 <div class="message-center ps ps--theme_default ps--active-y" data-ps-id="a045fe3c-cb6e-028e-3a70-8d6ff0d7f6bd">
                                     <!-- Message -->
                                     <ul class="feeds">
+                                    @foreach($resume as $r)
                                         <li>
-                                            <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span>
+                                            <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> {{$r->tanggal}}  Berhasil Menjual {{$r->total}}  <span class="text-muted"> </span> Barang
                                         </li>
+                                    @endforeach
                                         <li>
                                             <div class="bg-light-success"><i class="fa fa-server"></i></div> Server #1 overloaded.<span class="text-muted">2 Hours ago</span>
                                         </li>
@@ -365,7 +327,7 @@
         element: 'sales-chart',
         data: [
             @foreach($grafik1 as $p) 
-            {period: '{{$p->tanggal }}',Sales: {{$p->id}},Earning: {{$p->stok}},Marketing: 20},
+            {period: '{{$p->bulan }}',Sales: {{$p->jual}},Earning: {{$p->bonus}},Marketing: {{$p->retur}} },
             @endforeach
         ],
         xkey: 'period',

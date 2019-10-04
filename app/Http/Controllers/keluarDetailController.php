@@ -108,6 +108,8 @@ class keluarDetailController extends AppBaseController
     public function edit($id)
     {
         $keluarDetail = $this->keluarDetailRepository->find($id);
+        $barang = barang::All();
+        $keluar = barangKeluar::All();
 
         if (empty($keluarDetail)) {
             Flash::error('Keluar Detail not found');
@@ -115,7 +117,10 @@ class keluarDetailController extends AppBaseController
             return redirect(route('keluarDetails.index'));
         }
 
-        return view('keluar_details.edit')->with('keluarDetail', $keluarDetail);
+        return view('keluar_details.edit')
+        ->with('keluarDetail', $keluarDetail)
+        ->with('barang', $barang)
+        ->with('idks', $keluar);
     }
 
     /**
