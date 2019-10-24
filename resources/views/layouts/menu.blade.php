@@ -38,3 +38,7 @@
     <a href="{!! route('jenisMasuks.index') !!}"><i class="fa fa-edit"></i><span>Jenis Masuks</span></a>
 </li>
 
+<li class="{{ Request::is('keranjangs*') ? 'active' : '' }}">
+    <a href="{!! route('keranjangs.index') !!}"><i class="fa fa-edit"></i><span>Keranjangs</span></a>
+</li>
+

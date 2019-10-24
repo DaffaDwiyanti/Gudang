@@ -1,0 +1,87 @@
+create table insurance (
+	
+	id_insurance VARCHAR(100) NOT NULL PRIMARY KEY,
+	company VARCHAR(100) NOT NULL,
+	phone BIGINT NOT NULL
+);
+
+create table doctor (
+	id_doctor VARCHAR(100) NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	address VARCHAR(100) NOT NULL,
+	phone BIGINT NOT NULL,
+	specialization VARCHAR(100) NOT NULL
+);
+
+create table drug (
+	id_drug VARCHAR(100) NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	side_effects VARCHAR(100) NOT NULL,
+	benefits VARCHAR(100) NOT NULL
+);
+
+create table refillable (
+	id_refillable VARCHAR(100) NOT NULL PRIMARY KEY,
+	num_of_refills BIGINT NOT NULL,
+	comments VARCHAR(100) NOT NULL,
+	reason VARCHAR(100) NOT NULL
+);
+
+create table hospital (
+	id_hospital VARCHAR(100) NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	address VARCHAR(100) NOT NULL,
+	phone BIGINT NOT NULL
+);
+
+create table hospital_affiliation (
+	id_hospital_affiliation VARCHAR(100) NOT NULL PRIMARY KEY,
+	date_of_affiliation DATE NOT NULL,
+	hospital_id VARCHAR(100) REFERENCES hospital(id_hospital),
+	doctor_id VARCHAR(100) REFERENCES doctor(id_doctor)
+);
+
+create table patient (
+    id_patient VARCHAR(100) NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	address VARCHAR(100) NOT NULL,
+	phone BIGINT NOT NULL,
+	email VARCHAR(100),
+	insurance_id VARCHAR(100) REFERENCES insurance(id_insurance),
+	doctor_id VARCHAR(100) REFERENCES doctor(id_doctor)
+);
+
+create table primary_doctor_history (
+	id_doctor_history VARCHAR(100) NOT NULL PRIMARY KEY,
+	start_date DATE NOT NULL,
+	end_date DATE NOT NULL,
+	reason_for_leaving VARCHAR(100),
+	patient_id VARCHAR(100) REFERENCES patient(id_patient),
+	doctor_id VARCHAR(100) REFERENCES doctor(id_doctor)
+);
+
+create table prescription (
+    RX_id VARCHAR(100) NOT NULL PRIMARY KEY,
+	date_prescribed DATE NOT NULL,
+	dosage BIGINT NOT NULL,
+	duration BIGINT NOT NULL,
+	patient_id VARCHAR(100) REFERENCES patient(id_patient),
+	doctor_id VARCHAR(100) REFERENCES doctor(id_doctor),
+	drug_id VARCHAR(100) REFERENCES drug(id_drug),
+	reffilable_id VARCHAR(100) REFERENCES refillable(id_refillable)
+);
+
+create table office_visit (
+	id_office_visit VARCHAR(100) NOT NULL PRIMARY KEY,
+   	date_of_visit DATE NOT NULL,
+	patient_id VARCHAR(100) REFERENCES patient(id_patient),
+	doctor_id VARCHAR(100) REFERENCES doctor(id_doctor),
+	initial_diagnosis VARCHAR(100),
+	symptomps VARCHAR(100),
+	diagnosis_status VARCHAR(100),
+	blood VARCHAR(100) NOT NULL,
+	heigt_cm BIGINT NOT NULL,
+	weight_kg BIGINT NOT NULL,
+	diagnosis varchar(100),
+	rx_id VARCHAR(100) REFERENCES prescription (RX_id)
+);

@@ -100,15 +100,15 @@
               <div class="row products products-big">
                 <!-- isi disini  -->
                 <div class="container">
-            <form method="post">
-              <div class="row">
+
+                <div class="row">
                 <div class="col-lg-3 col-md-6">
                   <div class="box text-uppercase mt-0 mb-2">
                     <h3>Data Barang </h3>
                   </div>
                 </div>
 
-                @foreach($barangs as $barang)
+        @foreach($barangs as $barang)
                 <div class="col-lg-3 col-md-6">
                   <div class="product">
                     <div class="image"><a href="/gudang/bmasuk/{{$barang->id }}"><img src="../img/product2.jpg" alt="" class="img-fluid image1"></a></div>
@@ -118,9 +118,8 @@
                     </div>
                   </div>
                 </div>
-                @endforeach
+        @endforeach
               </div>
-            </form>
 
         </div>
               </div>
@@ -132,6 +131,7 @@
               <p class="text-muted lead">Your cart.</p>
             <div id="basket" class="col-lg-12">
               <div class="box mt-0 pb-0 no-horizontal-padding">
+                <!-- <form method="get" > -->
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -142,15 +142,27 @@
                       </thead>
                       <tbody>
 
-                            @foreach( $keranjang as $data)
+                        @if(session('barang'))
+                            @foreach( Session::get('barang') as $indexKey=>$data)
+
                       <tr>
                           <td><a href="#"><img src="../img/detailsquare.jpg" alt="White Blouse Armani" class="img-fluid"></a></td>
                           <td><a href="#">{{$data['namaBarang']}}</a></td>
-                          <td><input type="number" value="1" onkeyup="update(this.value,'{{ $data->id }}')" name="quantitas" id="qty"class="form-control">
+                          
+                          <td>
                           </td>
-                          <td><a href="/gudang/hapusb/{{$data->id}}"><i class="fa fa-trash-o"></i></a></td>
+                          <td><a href="/gudang/hapusb/{{$indexKey}}"><i class="fa fa-trash-o"></i></a></td>
                       </tr>
                             @endforeach
+                        @endif
+                        <!-- <tr>
+                          <td><a href="#"><img src="../img/basketsquare.jpg" alt="Black Blouse Armani" class="img-fluid"></a></td>
+                          <td><a href="#">Black Blouse Armani</a></td>
+                          <td>
+                            <input type="number" value="1" class="form-control">
+                          </td>
+                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>
@@ -188,21 +200,3 @@
     <script src="../js/front.js"></script>
   </body>
 </html>
-
-<script>
-function update(val,id) {
-  alert(val + ' | ' + id);
-
-    $.ajax({
-      url: 'updateUser',
-      type: 'post',
-      data: {_token: CSRF_TOKEN,editid: edit_id,name: name,email: email},
-      success: function(response){
-        alert(response);
-      }
-    });
-
-
- }
-
-</script>

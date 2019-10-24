@@ -27,6 +27,7 @@ use Validator;
 
 use App\Models\barang;
 use App\Models\User;
+use App\Models\keranjang;
 use App\Models\masukDetail;
 use App\Models\keluarDetail;
 use Session;
@@ -51,17 +52,7 @@ class gudangController extends Controller
     }
 
     public function index(){
-        // if($flagP == "i"){
             return view('gudang.index');
-    //     }elseif($flagP == "b"){
-    //         return view('gudang.barang');
-    //     }elseif($flagP == "m"){
-    //         return view('gudang.masuk');
-    //     }elseif($flagP == "k"){
-    //         return view('gudang.keluar');
-    //     }else{
-    //         return view('gudang.index');
-    //     }
     }
 
     //---------------- BARANG MASUK & SUMMARY MASUK
@@ -81,26 +72,37 @@ class gudangController extends Controller
         
     }
     public function bmasuk(){
-        $idmasuk = $this->barangMasukRepository->all();
+        $userId = Auth::user()->id;
+        $keranjang = keranjang::where('user_id', $userId)
+        ->join('barangs','barangs.id' ,'=', 'keranjangs.id_barang')
+        ->get();;
         $barangs = $this->barangRepository->all();
         return view('gudang.bmasuk')
-        ->with('barangs', $barangs)
-        ->with('idmasuks', $idmasuk->count());
-
-        return view('gudang.bmasuk')->with('datas' , $datas)->with('barangs', $barangs);
+        ->with('keranjang', $keranjang)
+        ->with('barangs', $barangs);
     }
-    public function bmasukKranjang($id){
+    public function bmasukKranjang($id,Request $request){
 
         $userId = Auth::user()->id;
         $datas = barang::where('id', $id)->first();
-        Session::push('barang', $datas);
-
-        $keranjang = Session::get('barang');
-        return view('gudang.bmasuk')->with('keranjang', $keranjang);
+        keranjang::create(['user_id'=> $userId, 'id_barang'=> $id, 'quantitas'=>1]);
+        return redirect()->route('gudang/bmasuk');
     }
-    
+    public function hapusb($id){
+        $barang=keranjang::find($id);
+        $barang->delete();
+        return redirect()->route('gudang/bmasuk');
+    }
+    public function updatek(Request $request){
+        
+    }
+     
+    public function checkout(Request $request)  
+    {
 
-    
+    }
+
+
     //---------------- BARANG KELUAR & SUMMARY KELUAR
     public function keluar(){
         $keluars = $this->barangKeluarRepository->all();
